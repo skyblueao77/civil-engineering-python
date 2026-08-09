@@ -5,13 +5,30 @@ Qiita記事:
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab./github/skyblueao77/civil-engineering-python/blob/main/02_basic_syntax/civil_engineering_python_intro_02.ipynb)
 
+## 内容
+
+- 変数
+
+- データ型
+
+- 四則演算
+
+- 条件分岐
+
+- 繰り返し処理
+
+- リスト
+
+ 
+
 ## 環境
 
 - Python 3.13
-- uv
 
+- uv
 ## セットアップ
+
+ 
 
 ```bash
 uv sync
-```
