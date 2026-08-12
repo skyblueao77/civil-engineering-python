@@ -1,5 +1,10 @@
 # 土木のためのPython入門
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Python Version](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/)
+[![Managed by uv](https://img.shields.io/badge/python--package--manager-uv-de5b88.svg)](https://github.com/astral-sh/uv)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
+
 土木工学を学ぶ学生向けのPython入門教材です。
 
 Pythonをこれから学び始める土木系学生を対象に、
@@ -210,9 +215,8 @@ uv 0.x.x
 Gitがインストールされている場合、以下のコマンドでリポジトリを取得できます。
 
 ```powershell
-git clone https://github.com/skyblueao77/civil-engineering-python.git
+git clone [https://github.com/skyblueao77/civil-engineering-python.git](https://github.com/skyblueao77/civil-engineering-python.git)```
 ```
-
 その後、リポジトリのディレクトリに移動します。
 
 ```powershell
@@ -226,7 +230,7 @@ cd civil-engineering-python
 例えばVol.2を学習する場合：
 
 ```powershell
-cd 02_basic_syntax
+cd qiita_02_basic
 ```
 
 このディレクトリには、その回のPython環境を定義する `pyproject.toml` と `uv.lock` が含まれています。
