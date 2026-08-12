@@ -16,12 +16,12 @@ Qiitaで公開している連載記事と、このリポジトリのJupyter Note
 
 以下のような方を想定しています。
 
-- 土木工学を専攻している学生
-- Pythonをこれから学び始める学生
-- プログラミング初心者
-- 土木分野でデータ分析をしてみたい方
-- AIにPythonコードを書いてもらうだけでなく、コードの意味を理解したい方
-- pandasなどを使って土木データを扱ってみたい方
+* 土木工学を専攻している学生
+* Pythonをこれから学び始める学生
+* プログラミング初心者
+* 土木分野でデータ分析をしてみたい方
+* AIにPythonコードを書いてもらうだけでなく、コードの意味を理解したい方
+* pandasなどを使って土木データを扱ってみたい方
 
 特に、**「土木学生だけどPythonを何に使えばいいのかわからない」**という方を主な対象としています。
 
@@ -31,10 +31,10 @@ Qiitaで公開している連載記事と、このリポジトリのJupyter Note
 
 現在は以下の3回分を公開しています。
 
-| 回 | 内容 | 主なテーマ |
-|---|---|---|
-| Vol.1 | 環境構築編 | Google Colab / uv / VS Code |
-| Vol.2 | 基本文法編 | 変数 / データ型 / 条件分岐 / 繰り返し |
+| 回     | 内容        | 主なテーマ                            |
+| ----- | --------- | -------------------------------- |
+| Vol.1 | 環境構築編     | Google Colab / uv / PyCharm      |
+| Vol.2 | 基本文法編     | 変数 / データ型 / 条件分岐 / 繰り返し          |
 | Vol.3 | pandas入門編 | DataFrame / Series / データ抽出 / CSV |
 
 今後、土木データ分析、可視化、数値計算、GISなどへの発展を予定しています。
@@ -49,11 +49,11 @@ Qiitaで公開している連載記事と、このリポジトリのJupyter Note
 
 Pythonを学習するための環境を準備します。
 
-- Google Colab
-- VS Code
-- uv
-- Python
-- 仮想環境
+* Google Colab
+* PyCharm
+* uv
+* Python
+* 仮想環境
 
 について扱います。
 
@@ -67,12 +67,12 @@ Pythonを学習するための環境を準備します。
 
 Pythonを使うために必要となる基本的な文法を学びます。
 
-- 変数
-- データ型
-- 四則演算
-- 条件分岐
-- 繰り返し処理
-- リスト
+* 変数
+* データ型
+* 四則演算
+* 条件分岐
+* 繰り返し処理
+* リスト
 
 などを、土木分野を意識した例題とともに扱います。
 
@@ -86,13 +86,13 @@ Pythonを使うために必要となる基本的な文法を学びます。
 
 土木分野で扱うことの多い表形式データを、pandasを使って処理します。
 
-- DataFrame
-- Series
-- データの作成
-- 行・列の抽出
-- 条件によるデータ抽出
-- 基本的な統計処理
-- CSVファイルの読み込み
+* DataFrame
+* Series
+* データの作成
+* 行・列の抽出
+* 条件によるデータ抽出
+* 基本的な統計処理
+* CSVファイルの読み込み
 
 などを扱います。
 
@@ -121,7 +121,7 @@ civil-engineering-python/
 │   └── uv.lock
 │
 └── README.md
-````
+```
 
 各回のフォルダには、対応するNotebookや環境設定ファイルなどを配置しています。
 
@@ -133,7 +133,7 @@ civil-engineering-python/
 
 * Python 3.13
 * uv
-* VS Code
+* PyCharm
 * Jupyter Notebook
 
 を使用します。
@@ -157,7 +157,7 @@ Google Colabでは、基本的にPythonやJupyter環境を自分でインスト�
 
 ---
 
-# 方法2：uv + VS Codeを使う
+# 方法2：uv + PyCharmを使う
 
 **継続的にPythonを学習したい場合はこちらをおすすめします。**
 
@@ -167,15 +167,15 @@ Google Colabでは、基本的にPythonやJupyter環境を自分でインスト�
 
 ---
 
-## 1. VS Codeをインストール
+## 1. PyCharmをインストール
 
-まずVisual Studio Codeをインストールしてください。
+まずPyCharmをインストールしてください。
 
 公式サイト：
 
-[https://code.visualstudio.com/](https://code.visualstudio.com/)
+[PyCharm公式サイト](https://www.jetbrains.com/pycharm/)
 
-インストール後、VS Codeを起動します。
+インストール後、PyCharmを起動します。
 
 ---
 
@@ -185,7 +185,7 @@ uvの公式ドキュメントに従ってインストールしてください。
 
 公式ドキュメント：
 
-[https://docs.astral.sh/uv/](https://docs.astral.sh/uv/)
+https://docs.astral.sh/uv/
 
 Windows PowerShellでは、公式のインストール方法を利用できます。
 
@@ -247,17 +247,13 @@ uv sync
 
 ---
 
-## 6. VS Codeでフォルダを開く
+## 6. PyCharmでフォルダを開く
 
-VS Codeで、現在のディレクトリを開きます。
+PyCharmで、現在のディレクトリを開きます。
 
-```powershell
-code .
-```
+PyCharmの
 
-または、VS Codeの
-
-**ファイル → フォルダーを開く**
+**File → Open**
 
 から対象フォルダを開いてください。
 
@@ -265,7 +261,7 @@ code .
 
 ## 7. Jupyter Notebookを開く
 
-`.ipynb` ファイルをVS Codeで開きます。
+`.ipynb` ファイルをPyCharmで開きます。
 
 例えばVol.2では、
 
@@ -275,7 +271,7 @@ civil_engineering_python_intro_02.ipynb
 
 を使用します。
 
-VS CodeでNotebookを開くと、セルごとにPythonコードを実行できます。
+PyCharmでNotebookを開くと、セルごとにPythonコードを実行できます。
 
 ---
 
@@ -374,7 +370,7 @@ uv run python example.py
 * Jupyter Notebook
 * Google Colab
 * uv
-* VS Code
+* PyCharm
 * pandas
 * NumPy
 * matplotlib
@@ -508,7 +504,7 @@ uv --version
 
 公式ドキュメント：
 
-[https://docs.astral.sh/uv/](https://docs.astral.sh/uv/)
+https://docs.astral.sh/uv/
 
 ---
 
@@ -540,18 +536,13 @@ uv sync
 
 を実行してください。
 
-その後、VS CodeでNotebookのPythonインタープリターがプロジェクトの環境になっているか確認してください。
+その後、PyCharmでNotebookのPythonインタープリターがプロジェクトの環境になっているか確認してください。
 
 ---
 
 ## NotebookでPython環境を選択できない
 
-VS Codeに以下の拡張機能がインストールされているか確認してください。
-
-* Python
-* Jupyter
-
-VS Codeの拡張機能画面からインストールできます。
+PyCharmでNotebookを開き、使用するPythonインタープリターがプロジェクトの環境になっているか確認してください。
 
 ---
 
@@ -563,7 +554,7 @@ VS Codeの拡張機能画面からインストールできます。
 | ---------- | ----------------------- |
 | OS         | Windows / macOS / Linux |
 | Python     | 3.13                    |
-| エディタ       | Visual Studio Code      |
+| IDE        | PyCharm                 |
 | Python環境管理 | uv                      |
 | Notebook   | Jupyter Notebook        |
 | ブラウザ実行     | Google Colab            |
@@ -589,7 +580,6 @@ VS Codeの拡張機能画面からインストールできます。
 
 詳細は [`LICENSE`](./LICENSE) ファイルをご確認ください。
 
-
 ---
 
 # Author
@@ -602,11 +592,11 @@ Qiitaでも「土木のためのPython入門」を連載しています。
 
 Qiita：
 
-[https://qiita.com/skyblueao77](https://qiita.com/skyblueao77)
+https://qiita.com/skyblueao77
 
 GitHub：
 
-[https://github.com/skyblueao77](https://github.com/skyblueao77)
+https://github.com/skyblueao77
 
 ---
 
@@ -615,7 +605,7 @@ GitHub：
 * [Qiita - 土木のためのPython入門](https://qiita.com/skyblueao77)
 * [GitHub - civil-engineering-python](https://github.com/skyblueao77/civil-engineering-python)
 * [uv 公式ドキュメント](https://docs.astral.sh/uv/)
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [PyCharm](https://www.jetbrains.com/pycharm/)
 * [Google Colab](https://colab.research.google.com/)
 
 ---
