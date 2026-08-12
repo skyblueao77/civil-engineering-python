@@ -3,7 +3,7 @@
 Qiita記事:
 [土木のためのPython入門② 基本文法編](https://qiita.com/skyblueao77/items/65abd5ad5befa474ee5f)
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab./github/skyblueao77/civil-engineering-python/blob/main/qiita_02_basic/civil_engineering_python_intro_02.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/skyblueao77/civil-engineering-python/blob/main/qiita_02_basic/civil_engineering_python_intro_02.ipynb)
 
 ## 内容
 
