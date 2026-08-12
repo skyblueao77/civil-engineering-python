@@ -108,14 +108,17 @@ civil-engineering-python/
 ├── 01_environment/
 │   └── ...
 │
-├── 02_basic_syntax/
+├── qiita_02_basic/
 │   ├── civil_engineering_python_intro_02.ipynb
 │   ├── README.md
 │   ├── pyproject.toml
 │   └── uv.lock
 │
-├── 03_pandas/
-│   └── ...
+├── qiita_03_pandas/
+|   |── qiita_doboku_3.ipynb
+│   ├── README.md
+│   ├── pyproject.toml
+│   └── uv.lock
 │
 └── README.md
 ````
