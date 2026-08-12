@@ -122,7 +122,7 @@ wheels = [
 ]
 
 [[package]]
-name = "qiita-3-pandas"
+name = "qiita-03-pandas"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
