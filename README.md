@@ -41,7 +41,7 @@ Qiitaで公開している連載記事と、このリポジトリのJupyter Note
 | Vol.1 | 環境構築編     | Google Colab / uv / PyCharm      |
 | Vol.2 | 基本文法編     | 変数 / データ型 / 条件分岐 / 繰り返し          |
 | Vol.3 | pandas入門編 | DataFrame / Series / データ抽出 / CSV |
-
+| Vol.4 | matplotlib入門編 | 折れ線グラフ | 散布図 / 軸設定・ラベル / グラフの保存 |
 今後、土木データ分析、可視化、数値計算、GISなどへの発展を予定しています。
 
 ---
@@ -105,6 +105,19 @@ Pythonを使うために必要となる基本的な文法を学びます。
 
 ---
 
+## Vol.4 matplotlib入門編
+*土木のためのPython入門④ matplotlib入門編*  
+pandasなどで整理した土木データを、matplotlibを使って可視化（グラフ化）します。
+- 折れ線グラフ（水位や雨量の時系列データなど）
+- 散布図（流量と水位の関係など）
+- 軸ラベル・タイトル・凡例の設定
+- 日本語表示の設定
+- グラフ画像の保存（PNG / PDFなど）
+などを扱います。  
+[Qiita記事：Vol.4 matplotlib入門編](https://qiita.com/skyblueao77/items/45da8225a78e99d28cc5)
+
+---
+
 # リポジトリの構成
 
 ```text
@@ -125,6 +138,11 @@ civil-engineering-python/
 │   ├── pyproject.toml
 │   └── uv.lock
 │
+├── qiita_04_matplotlib/      
+│   ├── qiita_doboku_4.ipynb 
+│   ├── README.md
+│   ├── pyproject.toml
+│   └── uv.lock
 └── README.md
 ```
 
