@@ -156,7 +156,7 @@
 # 必要に応じて実行してください
 # --------------------------------------------------------
 # Colab の場合（必要なら）:
-!pip install japanize-matplotlib
+#!pip install japanize-matplotlib
 
 # uv / pip 環境の場合（ターミナルで実行）:
 # uv add matplotlib japanize-matplotlib
