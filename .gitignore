@@ -3,3 +3,4 @@
 .idea/
 *.iml
 *.csv
+/qiita_06_scipy/__marimo__/
