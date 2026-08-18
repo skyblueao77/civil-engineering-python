@@ -1,11 +1,10 @@
 [project]
-name = "qiita_02_basic"
+name = "qiita-06-scipy"
 version = "0.1.0"
-description = "A collection of basic Python operations."
+description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
-    "ipykernel>=7.3.0",
     "matplotlib>=3.11.1",
     "numpy>=2.5.2",
     "scipy>=1.18.0",
