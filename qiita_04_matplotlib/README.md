@@ -31,14 +31,16 @@ Qiita記事:
 
 ## 環境
 
-* Python 3.13
+- Python 3.13
+- uv
+- Jupyter Notebook
 
-* uv
+このリポジトリでは、プロジェクト全体で1つのPython環境を使用しています。
 
 ## セットアップ
+
+リポジトリのルートディレクトリ（`civil-engineering-python`）で以下を実行してください。
 
 ```bash
 uv sync
 ```
-
-matplotlibや日本語表示に必要なパッケージは、このプロジェクトの環境設定に従ってインストールされます。
