@@ -24,12 +24,15 @@ Qiita記事:
 ## 環境
 
 - Python 3.13
-
 - uv
+- Jupyter Notebook
+
+このリポジトリでは、プロジェクト全体で1つのPython環境を使用しています。
 
 ## セットアップ
 
- 
+リポジトリのルートディレクトリ（`civil-engineering-python`）で以下を実行してください。
 
 ```bash
 uv sync
+```
