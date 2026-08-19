@@ -1,9 +1,0 @@
-[project]
-name = "qiita-03-pandas"
-version = "0.1.0"
-description = "A collection of basic pandas operations for data manipulation."
-readme = "README.md"
-requires-python = ">=3.13"
-dependencies = [
-    "pandas>=3.0.5",
-]
