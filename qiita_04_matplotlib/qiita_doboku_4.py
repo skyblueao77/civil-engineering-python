@@ -4,10 +4,9 @@
 """
 
 import matplotlib.pyplot as plt
-import pandas as pd
 
 # 日本語フォントを利用する場合は、環境に応じて次を有効化してください。
-import matplotlib_fontja
+import pandas as pd
 
 # 1. 折れ線グラフ
 days = ["月", "火", "水", "木", "金", "土", "日"]

@@ -128,7 +128,6 @@ import pandas as pd
 # まずは簡単な水門データを作成してみます。
 
 # %%
-import pandas as pd
 
 gate_data = pd.DataFrame(
     {
