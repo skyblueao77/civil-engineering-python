@@ -1,17 +1,52 @@
-# 貢献ガイド (Contributing Guide)
+# Contributing Guide
+
+Thank you for your interest in and contributions to the "Python for Civil Engineering" project!
+
+We welcome all kinds of contributions, including bug reports, feature suggestions, educational content, and typo or documentation corrections.
+
+# 貢献ガイド
 
 「土木のためのPython入門」プロジェクトへの興味・ご協力ありがとうございます！
+
 バグ報告、機能提案、教材コンテンツの追加、誤字脱字の修正など、あらゆる貢献を歓迎します。
+
+## 💡 How to Contribute
+
+### 1. Open an Issue
+
+Please feel free to create a new Issue from the [Issues](https://github.com/skyblueao77/civil-engineering-python/issues) page for matters such as:
+
+* **Bug reports:** When code does not work as expected or behaves differently from the documentation.
+* **Improvement suggestions:** Corrections to explanations or suggestions for making the content easier to understand.
+* **New content requests:** Requests for additional topics related to civil engineering and Python.
+
+### 2. Submit a Pull Request (PR)
+
+If you would like to contribute code or documentation changes, please follow these steps:
+
+1. **Fork** this repository.
+2. Create a working branch (`git checkout -b feature/amazing-feature`).
+3. Commit your changes (`git commit -m 'Add Vol.4 draft'`).
+4. Push the branch (`git push origin feature/amazing-feature`).
+5. Create a **Pull Request** on GitHub.
+
+## 📝 Notes for Development and Submission
+
+* **Notebook execution results:** When committing `.ipynb` files, please clear unnecessary output cells or make sure the notebook has been executed successfully and contains the correct results.
+* **License:** Submitted content will be published under the same [MIT License](./LICENSE) as this repository.
 
 ## 💡 貢献の方法
 
 ### 1. Issue（課題・提案）を立てる
+
 以下のような場合は、お気軽に [Issues](https://github.com/skyblueao77/civil-engineering-python/issues) から新しいIssueを作成してください。
-- **バグ報告:** コードが動かない、説明と挙動が異なる場合
-- **改善提案:** 解説の誤り、より分かりやすい書き方の提案
-- **新規コンテンツのリクエスト:** 追加してほしい土木×Pythonのトピック
+
+* **バグ報告:** コードが動かない、説明と挙動が異なる場合
+* **改善提案:** 解説の誤り、より分かりやすい書き方の提案
+* **新規コンテンツのリクエスト:** 追加してほしい土木×Pythonのトピック
 
 ### 2. Pull Request (PR) を送る
+
 コードやドキュメントの修正を行ってくださる場合は、以下の手順でPRをお送りください。
 
 1. このリポジトリを **Fork** します。
@@ -21,5 +56,6 @@
 5. GitHub上で **Pull Request** を作成します。
 
 ## 📝 開発・提出時の注意点
-- **Notebookの実行結果:** `.ipynb` ファイルをコミットする際は、不要な出力セルをクリアするか、正しく実行された状態にしてください。
-- **ライセンス:** 提出されたコンテンツは本リポジトリと同じ [MIT License](./LICENSE) のもとで公開されます。
+
+* **Notebookの実行結果:** `.ipynb` ファイルをコミットする際は、不要な出力セルをクリアするか、正しく実行された状態にしてください。
+* **ライセンス:** 提出されたコンテンツは本リポジトリと同じ [MIT License](./LICENSE) のもとで公開されます。
