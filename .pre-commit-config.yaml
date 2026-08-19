@@ -1,6 +1,11 @@
 repos:
   - repo: local
     hooks:
+      - id: ruff-check
+        name: Run Ruff Check
+        entry: uv run ruff check --fix
+        language: system
+        types: [python]
       - id: run-pytest
         name: Run Pytest
         entry: uv run pytest
