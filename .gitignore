@@ -4,3 +4,22 @@
 *.iml
 *.csv
 /qiita_06_scipy/__marimo__/
+# Python / Byte-compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# pytest / Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# uv / Virtual Environments
+
+uv.lock.bak
+
+# pre-commit
+.pre-commit-cache/
+
+# IDE / Editor
+.vscode/
