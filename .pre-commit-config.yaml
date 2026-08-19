@@ -6,9 +6,10 @@ repos:
         entry: uv run ruff check --fix
         language: system
         types: [python]
+
       - id: run-pytest
         name: Run Pytest
-        entry: uv run pytest
+        entry: uv run pytest --nbmake
         language: system
         pass_filenames: false
         always_run: true

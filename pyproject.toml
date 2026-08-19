@@ -18,7 +18,15 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "nbmake>=1.5.5",
     "pre-commit>=4.6.2",
     "pytest>=9.1.1",
     "ruff>=0.16.3",
 ]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"] # E: Error, F: Pyflakes (未定義変数など), I: isort (インポート順序)
