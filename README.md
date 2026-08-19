@@ -1,4 +1,4 @@
-# 土木のためのPython入門
+# Python for Civil Engineering
 
 [🇯🇵 日本語はこちら](README_ja.md)
 
@@ -6,8 +6,6 @@
 [![Python Version](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/)
 [![Managed by uv](https://img.shields.io/badge/python--package--manager-uv-de5b88.svg)](https://docs.astral.sh/uv/)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
-
-# Python for Civil Engineering
 
 A Python introductory learning resource for students studying civil engineering.
 
@@ -37,22 +35,22 @@ This project is intended for:
 
 The following content is currently available:
 
-| Volume | Content                 | Main Topics                                                                              |
-| ------ | ----------------------- | ---------------------------------------------------------------------------------------- |
-| Vol.1  | Environment Setup       | Google Colab / uv / PyCharm / Python                                                     |
-| Vol.2  | Python Basics           | Variables / Data Types / Conditional Statements / Loops / Lists                          |
-| Vol.3  | pandas Introduction     | DataFrame / Series / Data Extraction / CSV / Basic Statistics                            |
-| Vol.4  | Matplotlib Introduction | Line Plots / Scatter Plots / Axes / Labels / Legends / Saving Figures                    |
-| Vol.5  | NumPy Introduction      | ndarray / Array Operations / Vectorization / Numerical Computing                         |
-| Vol.6  | SciPy Introduction      | Interpolation / Numerical Integration / Numerical Differentiation / Scientific Computing |
+| Volume | Content | Main Topics |
+| ------ | ------- | ----------- |
+| Vol.1 | Environment Setup | Google Colab / uv / PyCharm / Python |
+| Vol.2 | Python Basics | Variables / Data Types / Conditional Statements / Loops / Lists |
+| Vol.3 | pandas Introduction | DataFrame / Series / Data Extraction / CSV / Basic Statistics |
+| Vol.4 | Matplotlib Introduction | Line Plots / Scatter Plots / Axes / Labels / Legends / Saving Figures |
+| Vol.5 | NumPy Introduction | ndarray / Array Operations / Vectorization / Numerical Computing |
+| Vol.6 | SciPy Introduction | Interpolation / Numerical Integration / Numerical Differentiation / Scientific Computing |
 
 Future topics will include civil engineering data analysis, GIS and spatial data, analysis using real-world datasets, and numerical computation.
 
 ---
 
-# Articles
+## Articles
 
-## Vol.1 Environment Setup
+### Vol.1 Environment Setup
 
 **Python for Civil Engineering Vol.1: Environment Setup (Google Colab and uv)**
 
@@ -70,7 +68,7 @@ Topics include:
 
 ---
 
-## Vol.2 Python Basics
+### Vol.2 Python Basics
 
 **Python for Civil Engineering Vol.2: Python Basics**
 
@@ -91,7 +89,7 @@ Examples are designed with civil engineering applications in mind.
 
 ---
 
-## Vol.3 pandas Introduction
+### Vol.3 pandas Introduction
 
 **Python for Civil Engineering Vol.3: Introduction to pandas**
 
@@ -111,7 +109,7 @@ Topics include:
 
 ---
 
-## Vol.4 Matplotlib Introduction
+### Vol.4 Matplotlib Introduction
 
 **Python for Civil Engineering Vol.4: Introduction to Matplotlib**
 
@@ -129,7 +127,7 @@ Topics include:
 
 ---
 
-## Vol.5 NumPy Introduction
+### Vol.5 NumPy Introduction
 
 **Python for Civil Engineering Vol.5: Introduction to NumPy**
 
@@ -149,7 +147,7 @@ Topics include:
 
 ---
 
-## Vol.6 SciPy Introduction
+### Vol.6 SciPy Introduction
 
 **Python for Civil Engineering Vol.6: Introduction to SciPy**
 
@@ -167,7 +165,7 @@ Topics include:
 
 ---
 
-# Repository Structure
+## Repository Structure
 
 This repository uses **one Python environment for the entire project**.
 
@@ -206,6 +204,7 @@ civil-engineering-python/
     ├── README.md
     ├── qiita_doboku_6.ipynb
     └── qiita_doboku_6.py
+
 ```
 
 Python environment settings are centrally managed at the project root.
@@ -214,13 +213,14 @@ Python environment settings are centrally managed at the project root.
 pyproject.toml
 uv.lock
 .python-version
+
 ```
 
 Each volume directory generally contains the Notebook, Python code, and README corresponding to that volume.
 
 ---
 
-# Environment Setup
+## Environment Setup
 
 This repository uses [`uv`](https://docs.astral.sh/uv/) to manage the Python environment.
 
@@ -240,7 +240,7 @@ If you want to try the materials without setting up a local environment, you can
 
 ---
 
-## Method 1: Use Google Colab
+### Method 1: Use Google Colab
 
 **This method is recommended if you simply want to try Python first.**
 
@@ -250,7 +250,7 @@ Open the Notebook using the "Open in Colab" button provided in each article.
 
 With Google Colab, you generally do not need to install Python or Jupyter manually.
 
-### Google Colab is recommended for people who:
+#### Google Colab is recommended for people who:
 
 * Want to try Python first
 * Want to learn without setting up a local environment
@@ -259,7 +259,7 @@ With Google Colab, you generally do not need to install Python or Jupyter manual
 
 ---
 
-# Method 2: Use uv + PyCharm
+### Method 2: Use uv + PyCharm
 
 **This method is recommended if you plan to study Python continuously.**
 
@@ -267,17 +267,13 @@ This project manages the Python environment for the entire repository using `uv`
 
 `uv` is a tool that can manage Python versions, virtual environments, and packages.
 
----
-
-## 1. Install PyCharm
+#### 1. Install PyCharm
 
 If you want to use PyCharm, install it from the official website.
 
 [PyCharm Official Website](https://www.jetbrains.com/pycharm/)
 
----
-
-## 2. Install uv
+#### 2. Install uv
 
 Install uv according to the official documentation.
 
@@ -289,71 +285,68 @@ After installation, run:
 
 ```powershell
 uv --version
+
 ```
 
 If a version number is displayed, uv has been installed successfully.
 
----
-
-## 3. Clone the Repository
+#### 3. Clone the Repository
 
 If Git is installed, clone the repository using:
 
 ```powershell
-git clone https://github.com/skyblueao77/civil-engineering-python.git
+git clone [https://github.com/skyblueao77/civil-engineering-python.git](https://github.com/skyblueao77/civil-engineering-python.git)
+
 ```
 
 Then move into the repository directory:
 
 ```powershell
 cd civil-engineering-python
+
 ```
 
----
-
-## 4. Set Up the Python Environment
+#### 4. Set Up the Python Environment
 
 Run the following command **from the project root directory**:
 
 ```powershell
 uv sync
+
 ```
 
 `uv sync` prepares the Python environment and dependencies based on `pyproject.toml` and `uv.lock`.
 
 This repository does not create a separate Python environment for each volume. **The entire series shares one Python environment.**
 
----
-
-## 5. Check the Python Version
+#### 5. Check the Python Version
 
 ```powershell
 uv run python --version
+
 ```
 
 If Python 3.13 is displayed, the basic environment setup is complete.
 
----
-
-## 6. Start Jupyter
+#### 6. Start Jupyter
 
 From the project root, run:
 
 ```powershell
 uv run jupyter lab
+
 ```
 
 Alternatively, you can open `.ipynb` files directly in PyCharm and execute the Notebook there.
 
----
-
-## 7. Open a Notebook
+#### 7. Open a Notebook
 
 For example, for Vol.2:
 
 ```text
 qiita_02_basic/
 └── civil_engineering_python_intro_02.ipynb
+
 ```
 
 For Vol.3:
@@ -361,13 +354,14 @@ For Vol.3:
 ```text
 qiita_03_pandas/
 └── qiita_doboku_3.ipynb
+
 ```
 
 Use the corresponding Notebook for each volume.
 
 ---
 
-# About `uv sync`
+## About `uv sync`
 
 This repository manages the Python environment and dependencies at the project root.
 
@@ -376,12 +370,14 @@ civil-engineering-python/
 ├── pyproject.toml
 ├── uv.lock
 └── .python-version
+
 ```
 
 Therefore, you should generally run:
 
 ```powershell
 uv sync
+
 ```
 
 from the repository root.
@@ -390,36 +386,37 @@ The `uv.lock` file records specific dependency versions, making it easier to rep
 
 ---
 
-# Dependencies
+## Dependencies
 
 The main dependencies currently include:
 
-| Package    | Purpose                                  |
-| ---------- | ---------------------------------------- |
-| NumPy      | Numerical computing and array processing |
-| pandas     | Tabular data processing                  |
-| Matplotlib | Data visualization                       |
-| SciPy      | Scientific computing                     |
-| Jupyter    | Notebook environment                     |
-| ipykernel  | Python kernel                            |
+| Package | Purpose |
+| --- | --- |
+| NumPy | Numerical computing and array processing |
+| pandas | Tabular data processing |
+| Matplotlib | Data visualization |
+| SciPy | Scientific computing |
+| Jupyter | Notebook environment |
+| ipykernel | Python kernel |
 
 Dependencies are managed in the root `pyproject.toml`.
 
 ---
 
-# Running Python
+## Running Python
 
 To run a Python file, execute a command such as the following from the project root:
 
 ```powershell
 uv run python qiita_03_pandas/qiita_doboku_3.py
+
 ```
 
 Using `uv run` ensures that the Python environment managed by the project is used.
 
 ---
 
-# About Jupyter Notebooks
+## About Jupyter Notebooks
 
 This project primarily provides code in Jupyter Notebook (`.ipynb`) format.
 
@@ -435,13 +432,14 @@ Check the result
 Modify the code
     ↓
 Run it again
+
 ```
 
 This format is suitable for beginners who want to learn by actually running Python code.
 
 ---
 
-# Python in Civil Engineering
+## Python in Civil Engineering
 
 Civil engineering involves working with many types of data.
 
@@ -469,6 +467,7 @@ Perform calculations and statistical processing
 Visualize data
     ↓
 Analyze results
+
 ```
 
 This project focuses not only on learning Python syntax, but also on understanding:
@@ -477,7 +476,7 @@ This project focuses not only on learning Python syntax, but also on understandi
 
 ---
 
-# Learning Python in the Age of AI
+## Learning Python in the Age of AI
 
 Today, generative AI can generate Python code relatively easily.
 
@@ -506,7 +505,7 @@ In addition to Python knowledge, it is important to develop the ability to verif
 
 ---
 
-# Recommended Learning Path
+## Recommended Learning Path
 
 The recommended learning sequence is:
 
@@ -534,6 +533,7 @@ Civil Engineering Data Analysis
 GIS and Spatial Data
     ↓
 Advanced Numerical Computing and Analysis
+
 ```
 
 You do not need to understand everything immediately.
@@ -544,32 +544,33 @@ Run the Notebooks while learning and repeat the following cycle:
 
 ---
 
-# Recommended Environment
+## Recommended Environment
 
 This project primarily assumes the following environment:
 
-| Item                       | Recommendation                |
-| -------------------------- | ----------------------------- |
-| OS                         | Windows / macOS / Linux       |
-| Python                     | 3.13                          |
-| IDE                        | PyCharm                       |
-| Python Environment Manager | uv                            |
-| Notebook                   | Jupyter Notebook / JupyterLab |
-| Browser-based Execution    | Google Colab                  |
-| Version Control            | Git / GitHub                  |
+| Item | Recommendation |
+| --- | --- |
+| OS | Windows / macOS / Linux |
+| Python | 3.13 |
+| IDE | PyCharm |
+| Python Environment Manager | uv |
+| Notebook | Jupyter Notebook / JupyterLab |
+| Browser-based Execution | Google Colab |
+| Version Control | Git / GitHub |
 
 Python and package versions are managed according to `pyproject.toml` and `uv.lock` in the repository.
 
 ---
 
-# Troubleshooting
+## Troubleshooting
 
-## `uv` Command Not Found
+### `uv` Command Not Found
 
 Run:
 
 ```powershell
 uv --version
+
 ```
 
 If an error occurs, check whether uv has been installed correctly.
@@ -578,24 +579,26 @@ If an error occurs, check whether uv has been installed correctly.
 
 ---
 
-## The Python Version Is Different
+### The Python Version Is Different
 
 Check the version with:
 
 ```powershell
 uv run python --version
+
 ```
 
 This repository specifies the Python version in the `.python-version` file at the project root.
 
 ---
 
-## A Package Cannot Be Found
+### A Package Cannot Be Found
 
 First, run:
 
 ```powershell
 uv sync
+
 ```
 
 from the project root.
@@ -604,7 +607,7 @@ Then check whether PyCharm or Jupyter is using the Python environment managed by
 
 ---
 
-## The Python Environment Cannot Be Selected in a Notebook
+### The Python Environment Cannot Be Selected in a Notebook
 
 Open the Notebook in PyCharm or Jupyter and check whether the selected Python interpreter is the project's environment.
 
@@ -612,11 +615,56 @@ If necessary, run the following from the project root:
 
 ```powershell
 uv run python -m ipykernel install --user --name civil-engineering-python --display-name "Python (civil-engineering-python)"
+
 ```
 
 ---
 
-# Disclaimer
+## 🛠️ For Developers
+
+This repository uses `uv` and `pre-commit` for package management and automation of the development environment.
+
+### 1. Developer Environment Setup
+
+After cloning the repository, run the following commands to install dependencies and enable Git Hooks for automatic checks:
+
+```bash
+# Synchronize dependencies (automatically creates/updates virtual environment)
+uv sync
+
+# Enable Git Hooks (enables automatic testing and code linting before commits)
+uv run pre-commit install
+
+```
+
+---
+
+### 2. Automated Code Quality & Testing (Pre-commit)
+
+When executing `git commit`, the following checks run automatically on your local machine:
+
+* **Ruff**: Static code analysis, formatting, and detection of syntax issues or unused variables.
+* **Pytest (+ nbmake)**: Verification and execution tests for Python scripts and Jupyter Notebook (`.ipynb`) cells.
+
+#### Running Tests Manually
+
+To manually verify all files before committing, run:
+
+```bash
+# Manually run Ruff and Pytest on all files
+uv run pre-commit run --all-files
+
+# Run Pytest only (verifies .py and .ipynb files)
+uv run pytest --nbmake
+
+# Run Ruff only (code linting and auto-fix)
+uv run ruff check --fix
+
+```
+
+---
+
+## Disclaimer
 
 This repository is an educational resource for learning Python and its applications in civil engineering.
 
@@ -626,15 +674,15 @@ In particular, when using calculations related to civil engineering for actual p
 
 ---
 
-# License
+## License
 
 This repository is released under the **MIT License**.
 
-See the [`LICENSE`](./LICENSE) file for details.
+See the [`LICENSE`](/LICENSE) file for details.
 
 ---
 
-# Author
+## Author
 
 **skyblueao77**
 
@@ -647,7 +695,7 @@ The "Python for Civil Engineering" series is also published on Qiita.
 
 ---
 
-# Related Links
+## Related Links
 
 * [Qiita - Python for Civil Engineering](https://qiita.com/skyblueao77)
 * [GitHub - civil-engineering-python](https://github.com/skyblueao77/civil-engineering-python)
@@ -657,7 +705,7 @@ The "Python for Civil Engineering" series is also published on Qiita.
 
 ---
 
-# Future Plans
+## Future Plans
 
 The following topics are planned for future releases:
 
@@ -673,4 +721,6 @@ The following topics are planned for future releases:
 
 The goal is to develop this repository into a **practical learning resource that helps civil engineering students progress from learning Python to actually working with real-world civil engineering data**.
 
----
+```
+
+```
