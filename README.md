@@ -1,4 +1,4 @@
-# Python for Civil Engineering
+# Python for Civil Engineering (土木のためのPython入門)
 
 [🇯🇵 日本語はこちら](README_ja.md)
 
