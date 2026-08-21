@@ -1,115 +1,144 @@
+# %% [markdown]
+# # 土木のためのPython入門⑤ NumPy入門｜配列・行列・数値計算を基礎から解説
+
+# %%
 import matplotlib.pyplot as plt
 import numpy as np
 
-# ==========================================
-# 1. NumPyとは & 3. PythonのリストとNumPy配列
-# ==========================================
-# Python標準リストの挙動（連結される）
-list_a = [1, 2, 3]
-list_b = [4, 5, 6]
-print("リストの加算:", list_a + list_b)  # Output: [1, 2, 3, 4, 5, 6]
+# %% [markdown]
+# ## 1. NumPyとは
 
-# NumPy配列（ndarray）の挙動（要素ごとに計算される）
-arr_a = np.array([1, 2, 3])
-arr_b = np.array([4, 5, 6])
-print("NumPy配列の加算:", arr_a + arr_b)  # Output: [5 7 9]
+# %%
+water_level = np.array([1.2, 1.5, 1.4, 2.1, 2.8])
+print(type(water_level))
 
-# 配列要素の累乗計算
-print("要素ご体の自乗:", arr_a**2)  # Output: [1 4 9]
+# %% [markdown]
+# ## 3. PythonのリストとNumPy配列
 
+# %%
+# リストの挙動（連結）
+a_list = [1, 2, 3]
+b_list = [4, 5, 6]
+print("リストの足し算:", a_list + b_list)
 
-# ==========================================
-# 4. 土木データを計算する
-# ==========================================
-water_level = np.array([1.2, 1.5, 2.1, 1.8, 2.5])
+# NumPy配列の挙動（要素ごとの計算）
+a_arr = np.array([1, 2, 3])
+b_arr = np.array([4, 5, 6])
+print("NumPy配列の足し算:", a_arr + b_arr)
 
-# 全要素への一括加算
-water_level_adjusted = water_level + 0.3
-print("補正後水位:", water_level_adjusted)
+data = np.array([1, 2, 3, 4, 5])
+print("data + 10:", data + 10)
+print("data * 2:", data * 2)
+print("data / 2:", data / 2)
 
-# 統計値の算出
+# %% [markdown]
+# ## 4. 土木データを計算する
+
+# %%
+water_level = np.array([1.2, 1.5, 1.4, 2.1, 2.8])
+corrected_level = water_level + 0.3
+print("補正後の水位:", corrected_level)
+
 print("最大水位:", np.max(water_level))
 print("最小水位:", np.min(water_level))
 print("平均水位:", np.mean(water_level))
 
+# %% [markdown]
+# ## 5. ブロードキャスト
 
-# ==========================================
-# 5. ブロードキャスト
-# ==========================================
-arr = np.array([1, 2, 3])
-# スカラー値が自動的に拡張されて計算される
-result = arr + 10
-print("ブロードキャスト結果:", result)  # Output: [11 12 13]
+# %%
+data = np.array([1, 2, 3])
+print("ブロードキャスト (data + 10):", data + 10)
 
+# %% [markdown]
+# ## 6. 配列の形を確認する
 
-# ==========================================
-# 6. 配列の形を確認する
-# ==========================================
-sample_arr = np.array([[1, 2, 3], [4, 5, 6]])
+# %%
+data = np.array([1, 2, 3, 4, 5])
+print("shape:", data.shape)
+print("ndim:", data.ndim)
+print("size:", data.size)
+print("dtype:", data.dtype)
 
-print("shape (各次元の大きさ):", sample_arr.shape)  # (2, 3)
-print("ndim (次元数):", sample_arr.ndim)  # 2
-print("size (全要素数):", sample_arr.size)  # 6
-print("dtype (データ型):", sample_arr.dtype)  # int64 または int32
+# %% [markdown]
+# ## 7. 2次元配列と行列
 
+# %%
+data_2d = np.array([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+])
 
-# ==========================================
-# 7. 2次元配列と行列 & 8. * と @ の違い
-# ==========================================
-A = np.array([[1, 2], [3, 4]])
+print(data_2d)
+print("shape:", data_2d.shape)
 
-B = np.array([[5, 6], [7, 8]])
+A = np.array([
+    [1, 2],
+    [3, 4]
+])
 
-# 要素ごとの積 (*)
-print("要素ごとの積 (*):\n", A * B)
+# %% [markdown]
+# ## 8. * と @ の違い
 
-# 行列積 (@)
-print("行列積 (@):\n", A @ B)
+# %%
+A = np.array([
+    [1, 2],
+    [3, 4]
+])
 
+B = np.array([
+    [5, 6],
+    [7, 8]
+])
 
-# ==========================================
-# 9. 連立方程式を解く
-# ==========================================
-# 2x + y = 5
-# x + 3y = 10
-A_eq = np.array([[2, 1], [1, 3]])
+print("要素ごとの積 (A * B):\n", A * B)
+print("行列積 (A @ B):\n", A @ B)
 
-B_eq = np.array([5, 10])
+# %% [markdown]
+# ## 9. 連立方程式を解く
 
-# 解 [x, y] を求める
-sol = np.linalg.solve(A_eq, B_eq)
-print("連立方程式の解 (x, y):", sol)
+# %%
+# 2x +  y = 5
+#  x + 3y = 6
 
+A_eq = np.array([
+    [2, 1],
+    [1, 3]
+])
 
-# ==========================================
-# 10. NumPyのビューとコピー
-# ==========================================
-original = np.array([1, 2, 3, 4, 5])
+b_eq = np.array([5, 6])
 
-# スライスによるビューの作成（参照を共有）
-view_part = original[0:3]
-view_part[0] = 999
-print("ビュー変更後の元配列:", original)  # 元のデータも変更される
+x_sol = np.linalg.solve(A_eq, b_eq)
+print("連立方程式の解 [x, y]:", x_sol)
 
-# コピーの作成（独立したデータ）
-original_2 = np.array([1, 2, 3, 4, 5])
-copy_part = original_2[0:3].copy()
-copy_part[0] = 999
-print("コピー変更後の元配列:", original_2)  # 元のデータは影響を受けない
+# %% [markdown]
+# ## 10. NumPyのビューとコピー
 
+# %%
+data = np.array([10, 20, 30, 40, 50])
 
-# ==========================================
-# 12. NumPyとMatplotlibを組み合わせる
-# ==========================================
-# 0から10までの範囲を100等分
+# ビューの例
+part = data[1:4]
+part[0] = 999
+print("ビュー変更後の元配列:", data)
+
+# コピーの例
+data_orig = np.array([10, 20, 30, 40, 50])
+part_copy = data_orig[1:4].copy()
+part_copy[0] = 999
+print("コピー変更後の元配列:", data_orig)
+
+# %% [markdown]
+# ## 12. NumPyとMatplotlibを組み合わせる
+
+# %%
 x = np.linspace(0, 10, 100)
-y = np.sin(x)
+y = x ** 2
 
-plt.figure(figsize=(8, 4))
-plt.plot(x, y, label="y = sin(x)")
-plt.title("NumPy and Matplotlib Visualization")
+plt.plot(x, y)
 plt.xlabel("x")
 plt.ylabel("y")
-plt.grid(True)
-plt.legend()
+plt.title("y = x²")
+plt.grid()
 plt.show()
