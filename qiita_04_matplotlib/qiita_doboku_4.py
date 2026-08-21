@@ -1,27 +1,35 @@
-"""土木のためのPython入門④ matplotlib入門編
+# %% [markdown]
+# # 土木のためのPython入門④ matplotlib入門編
+#
+# 元記事のサンプルコードを実行できる形にまとめた教材用スクリプトです。
 
-元記事のサンプルコードを実行できる形にまとめた教材用スクリプトです。
-"""
-
+# %%
 import matplotlib.pyplot as plt
-
-# 日本語フォントを利用する場合は、環境に応じて次を有効化してください。
 import pandas as pd
 
-# 1. 折れ線グラフ
+# %% [markdown]
+# ## 1. 折れ線グラフ
+
+# %%
 days = ["月", "火", "水", "木", "金", "土", "日"]
 water_level = [1.2, 1.5, 1.4, 2.1, 2.8, 2.2, 1.7]
 plt.plot(days, water_level)
 plt.show()
 
-# 2. タイトルと軸ラベル
+# %% [markdown]
+# ## 2. タイトルと軸ラベル
+
+# %%
 plt.plot(days, water_level)
 plt.title("河川水位の変化")
 plt.xlabel("曜日")
 plt.ylabel("水位 (m)")
 plt.show()
 
-# 3. グリッド
+# %% [markdown]
+# ## 3. グリッド
+
+# %%
 plt.plot(days, water_level)
 plt.title("河川水位の変化")
 plt.xlabel("曜日")
@@ -29,7 +37,10 @@ plt.ylabel("水位 (m)")
 plt.grid()
 plt.show()
 
-# 4. 凡例
+# %% [markdown]
+# ## 4. 凡例
+
+# %%
 standard_level = [2.0] * 7
 plt.plot(days, water_level, label="観測水位")
 plt.plot(days, standard_level, label="基準水位")
@@ -40,7 +51,10 @@ plt.legend()
 plt.grid()
 plt.show()
 
-# 5. 棒グラフ
+# %% [markdown]
+# ## 5. 棒グラフ
+
+# %%
 locations = ["A地点", "B地点", "C地点", "D地点"]
 traffic = [1200, 1800, 1500, 900]
 plt.bar(locations, traffic)
@@ -49,7 +63,10 @@ plt.xlabel("地点")
 plt.ylabel("交通量 (台/日)")
 plt.show()
 
-# 6. 散布図
+# %% [markdown]
+# ## 6. 散布図
+
+# %%
 rainfall = [5, 10, 15, 20, 25, 30, 40]
 water_level_rain = [1.1, 1.2, 1.3, 1.5, 1.7, 2.0, 2.5]
 plt.scatter(rainfall, water_level_rain)
@@ -59,7 +76,10 @@ plt.ylabel("水位 (m)")
 plt.grid()
 plt.show()
 
-# 7. pandasとmatplotlib
+# %% [markdown]
+# ## 7. pandasとmatplotlib
+
+# %%
 river_data = pd.DataFrame(
     {
         "曜日": ["月", "火", "水", "木", "金", "土", "日"],
@@ -74,7 +94,10 @@ plt.ylabel("水位 (m)")
 plt.grid()
 plt.show()
 
-# 8. CSVから読み込んでグラフ化
+# %% [markdown]
+# ## 8. CSVから読み込んでグラフ化
+
+# %%
 csv_data = """日,雨量(mm)
 1,5
 2,12
@@ -95,7 +118,10 @@ plt.ylabel("雨量 (mm)")
 plt.grid()
 plt.show()
 
-# 9. グラフを画像として保存
+# %% [markdown]
+# ## 9. グラフを画像として保存
+
+# %%
 plt.plot(river_data["曜日"], river_data["水位(m)"])
 plt.title("河川水位の変化")
 plt.xlabel("曜日")
