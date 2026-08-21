@@ -5,6 +5,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/)
 [![Managed by uv](https://img.shields.io/badge/python--package--manager-uv-de5b88.svg)](https://docs.astral.sh/uv/)
+[![Security Policy](https://img.shields.io/badge/Security-Policy-green.svg)](https://github.com/skyblueao77/civil-engineering-python/security/policy)
+[![Dependabot](https://img.shields.io/badge/Dependabot-enabled-green.svg)](https://github.com/skyblueao77/civil-engineering-python/security/dependabot)
+[![Secret Scanning](https://img.shields.io/badge/Secret%20Scanning-enabled-green.svg)](https://github.com/skyblueao77/civil-engineering-python/security/secret-scanning)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
 
 A Python introductory learning resource for students studying civil engineering.
@@ -14,6 +17,41 @@ This project is designed for civil engineering students who are beginning to lea
 **Environment Setup → Python Basics → Data Processing → Visualization → Numerical Computing**
 
 The repository is designed to be used together with the accompanying Qiita articles, Jupyter Notebooks, and Python code.
+
+---
+
+## Table of Contents
+
+- [Target Audience](#target-audience)
+- [What You Will Learn](#what-you-will-learn)
+- [Articles](#articles)
+  - [Vol.1 Environment Setup](#vol1-environment-setup)
+  - [Vol.2 Python Basics](#vol2-python-basics)
+  - [Vol.3 pandas Introduction](#vol3-pandas-introduction)
+  - [Vol.4 Matplotlib Introduction](#vol4-matplotlib-introduction)
+  - [Vol.5 NumPy Introduction](#vol5-numpy-introduction)
+  - [Vol.6 SciPy Introduction](#vol6-scipy-introduction)
+- [Repository Structure](#repository-structure)
+- [Environment Setup](#environment-setup)
+  - [Method 1: Use Google Colab](#method-1-use-google-colab)
+  - [Method 2: Use uv + PyCharm](#method-2-use-uv--pycharm)
+- [About `uv sync`](#about-uv-sync)
+- [Dependencies](#dependencies)
+- [Reproducibility and Dependency Management](#reproducibility-and-dependency-management)
+- [Security and Code Quality](#security-and-code-quality)
+- [Running Python](#running-python)
+- [About Jupyter Notebooks](#about-jupyter-notebooks)
+- [Python in Civil Engineering](#python-in-civil-engineering)
+- [Learning Python in the Age of AI](#learning-python-in-the-age-of-ai)
+- [Recommended Learning Path](#recommended-learning-path)
+- [Recommended Environment](#recommended-environment)
+- [Troubleshooting](#troubleshooting)
+- [For Developers](#for-developers)
+- [Disclaimer](#disclaimer)
+- [License](#license)
+- [Author](#author)
+- [Related Links](#related-links)
+- [Future Plans](#future-plans)
 
 ---
 
@@ -177,9 +215,12 @@ civil-engineering-python/
 ├── pyproject.toml
 ├── uv.lock
 ├── README.md
+├── README_ja.md
 ├── LICENSE
+├── SECURITY.md
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
+├── .pre-commit-config.yaml
 │
 ├── qiita_02_basic/
 │   ├── README.md
@@ -204,8 +245,7 @@ civil-engineering-python/
     ├── README.md
     ├── qiita_doboku_6.ipynb
     └── qiita_doboku_6.py
-
-```
+````
 
 Python environment settings are centrally managed at the project root.
 
@@ -213,7 +253,6 @@ Python environment settings are centrally managed at the project root.
 pyproject.toml
 uv.lock
 .python-version
-
 ```
 
 Each volume directory generally contains the Notebook, Python code, and README corresponding to that volume.
@@ -285,7 +324,6 @@ After installation, run:
 
 ```powershell
 uv --version
-
 ```
 
 If a version number is displayed, uv has been installed successfully.
@@ -295,15 +333,13 @@ If a version number is displayed, uv has been installed successfully.
 If Git is installed, clone the repository using:
 
 ```powershell
-git clone [https://github.com/skyblueao77/civil-engineering-python.git](https://github.com/skyblueao77/civil-engineering-python.git)
-
+git clone https://github.com/skyblueao77/civil-engineering-python.git
 ```
 
 Then move into the repository directory:
 
 ```powershell
 cd civil-engineering-python
-
 ```
 
 #### 4. Set Up the Python Environment
@@ -312,7 +348,6 @@ Run the following command **from the project root directory**:
 
 ```powershell
 uv sync
-
 ```
 
 `uv sync` prepares the Python environment and dependencies based on `pyproject.toml` and `uv.lock`.
@@ -323,7 +358,6 @@ This repository does not create a separate Python environment for each volume. *
 
 ```powershell
 uv run python --version
-
 ```
 
 If Python 3.13 is displayed, the basic environment setup is complete.
@@ -334,7 +368,6 @@ From the project root, run:
 
 ```powershell
 uv run jupyter lab
-
 ```
 
 Alternatively, you can open `.ipynb` files directly in PyCharm and execute the Notebook there.
@@ -346,7 +379,6 @@ For example, for Vol.2:
 ```text
 qiita_02_basic/
 └── civil_engineering_python_intro_02.ipynb
-
 ```
 
 For Vol.3:
@@ -354,7 +386,6 @@ For Vol.3:
 ```text
 qiita_03_pandas/
 └── qiita_doboku_3.ipynb
-
 ```
 
 Use the corresponding Notebook for each volume.
@@ -370,14 +401,12 @@ civil-engineering-python/
 ├── pyproject.toml
 ├── uv.lock
 └── .python-version
-
 ```
 
 Therefore, you should generally run:
 
 ```powershell
 uv sync
-
 ```
 
 from the repository root.
@@ -390,16 +419,120 @@ The `uv.lock` file records specific dependency versions, making it easier to rep
 
 The main dependencies currently include:
 
-| Package | Purpose |
-| --- | --- |
-| NumPy | Numerical computing and array processing |
-| pandas | Tabular data processing |
-| Matplotlib | Data visualization |
-| SciPy | Scientific computing |
-| Jupyter | Notebook environment |
-| ipykernel | Python kernel |
+| Package    | Purpose                                  |
+| ---------- | ---------------------------------------- |
+| NumPy      | Numerical computing and array processing |
+| pandas     | Tabular data processing                  |
+| Matplotlib | Data visualization                       |
+| SciPy      | Scientific computing                     |
+| Jupyter    | Notebook environment                     |
+| ipykernel  | Python kernel                            |
 
 Dependencies are managed in the root `pyproject.toml`.
+
+---
+
+## Reproducibility and Dependency Management
+
+Reproducibility is important when sharing educational code and numerical computing environments.
+
+This repository uses the following files to manage the Python environment:
+
+| File              | Purpose                                          |
+| ----------------- | ------------------------------------------------ |
+| `pyproject.toml`  | Defines the project and its dependencies         |
+| `uv.lock`         | Records resolved dependency versions             |
+| `.python-version` | Specifies the Python version used by the project |
+
+The project uses a single environment at the repository root rather than maintaining a separate environment for each volume.
+
+When setting up the project, run:
+
+```powershell
+uv sync
+```
+
+This allows `uv` to create or update the project environment based on the project's configuration and lock file.
+
+Using a lock file also helps reduce unintended differences in dependency versions between development environments.
+
+However, a lock file alone does not guarantee complete security. Users should still keep development tools and dependencies up to date and review security advisories when appropriate.
+
+---
+
+## Security and Code Quality
+
+Security, dependency management, reproducibility, and code quality are treated as part of the repository's development process.
+
+### GitHub Security Features
+
+The repository uses several GitHub security features to help maintain a secure and well-maintained development environment.
+
+Currently enabled features include:
+
+* **Security Policy** — Provides instructions for securely reporting potential vulnerabilities.
+* **Security Advisories** — Provides a mechanism for managing and disclosing security advisories.
+* **Private Vulnerability Reporting** — Allows potential vulnerabilities to be reported privately.
+* **Dependabot Alerts** — Monitors project dependencies for known vulnerabilities.
+* **Secret Scanning** — Helps detect accidentally committed secrets.
+
+[View Security Policy](https://github.com/skyblueao77/civil-engineering-python/security/policy)
+
+[View Security Advisories](https://github.com/skyblueao77/civil-engineering-python/security/advisories)
+
+[View Dependabot Alerts](https://github.com/skyblueao77/civil-engineering-python/security/dependabot)
+
+[View Secret Scanning](https://github.com/skyblueao77/civil-engineering-python/security/secret-scanning)
+
+### Code Scanning
+
+GitHub Code Scanning is planned for this repository but is currently not configured.
+
+When CodeQL or another supported code scanning workflow is configured, automated static security analysis can be added to the repository's security workflow.
+
+### Dependency Management
+
+Project dependencies are centrally managed through:
+
+```text
+pyproject.toml
+uv.lock
+.python-version
+```
+
+The uv.lock file records resolved dependency versions to improve reproducibility and reduce unexpected dependency changes.
+
+Dependabot Alerts provide an additional layer of monitoring for known vulnerabilities in project dependencies.
+
+### Pre-commit Checks
+
+The repository uses `pre-commit` to run automated checks before commits.
+
+The configuration is stored in:
+
+```text
+.pre-commit-config.yaml
+```
+
+The development workflow includes:
+
+- Ruff — Static analysis, formatting, and code quality checks
+- Pytest — Automated testing
+- nbmake — Execution-based testing of Jupyter Notebooks
+
+Developers can run the checks manually with:
+```bash
+uv run pre-commit run --all-files
+```
+These checks help detect syntax errors, unused variables, formatting issues, and problems that prevent Python scripts or Jupyter Notebooks from executing correctly.
+
+### Security Scope
+
+This is an educational repository, not a security-critical production system.
+
+The security features and development checks described above are intended to improve repository hygiene, dependency monitoring, reproducibility, and code quality.
+
+They should not be interpreted as a guarantee that the repository or every dependency is completely free of vulnerabilities.
 
 ---
 
@@ -409,7 +542,6 @@ To run a Python file, execute a command such as the following from the project r
 
 ```powershell
 uv run python qiita_03_pandas/qiita_doboku_3.py
-
 ```
 
 Using `uv run` ensures that the Python environment managed by the project is used.
@@ -432,7 +564,6 @@ Check the result
 Modify the code
     ↓
 Run it again
-
 ```
 
 This format is suitable for beginners who want to learn by actually running Python code.
@@ -467,7 +598,6 @@ Perform calculations and statistical processing
 Visualize data
     ↓
 Analyze results
-
 ```
 
 This project focuses not only on learning Python syntax, but also on understanding:
@@ -533,7 +663,6 @@ Civil Engineering Data Analysis
 GIS and Spatial Data
     ↓
 Advanced Numerical Computing and Analysis
-
 ```
 
 You do not need to understand everything immediately.
@@ -548,15 +677,15 @@ Run the Notebooks while learning and repeat the following cycle:
 
 This project primarily assumes the following environment:
 
-| Item | Recommendation |
-| --- | --- |
-| OS | Windows / macOS / Linux |
-| Python | 3.13 |
-| IDE | PyCharm |
-| Python Environment Manager | uv |
-| Notebook | Jupyter Notebook / JupyterLab |
-| Browser-based Execution | Google Colab |
-| Version Control | Git / GitHub |
+| Item                       | Recommendation                |
+| -------------------------- | ----------------------------- |
+| OS                         | Windows / macOS / Linux       |
+| Python                     | 3.13                          |
+| IDE                        | PyCharm                       |
+| Python Environment Manager | uv                            |
+| Notebook                   | Jupyter Notebook / JupyterLab |
+| Browser-based Execution    | Google Colab                  |
+| Version Control            | Git / GitHub                  |
 
 Python and package versions are managed according to `pyproject.toml` and `uv.lock` in the repository.
 
@@ -570,7 +699,6 @@ Run:
 
 ```powershell
 uv --version
-
 ```
 
 If an error occurs, check whether uv has been installed correctly.
@@ -585,7 +713,6 @@ Check the version with:
 
 ```powershell
 uv run python --version
-
 ```
 
 This repository specifies the Python version in the `.python-version` file at the project root.
@@ -598,7 +725,6 @@ First, run:
 
 ```powershell
 uv sync
-
 ```
 
 from the project root.
@@ -615,51 +741,50 @@ If necessary, run the following from the project root:
 
 ```powershell
 uv run python -m ipykernel install --user --name civil-engineering-python --display-name "Python (civil-engineering-python)"
-
 ```
 
 ---
 
-## 🛠️ For Developers
+## For Developers
 
-This repository uses `uv` and `pre-commit` for package management and automation of the development environment.
+This repository uses `uv` for Python environment and dependency management, and `pre-commit` for automated development checks.
 
 ### 1. Developer Environment Setup
 
 After cloning the repository, run the following commands to install dependencies and enable Git Hooks for automatic checks:
 
 ```bash
-# Synchronize dependencies (automatically creates/updates virtual environment)
+# Synchronize dependencies
 uv sync
 
-# Enable Git Hooks (enables automatic testing and code linting before commits)
+# Enable Git Hooks
 uv run pre-commit install
-
 ```
 
 ---
 
-### 2. Automated Code Quality & Testing (Pre-commit)
+### 2. Automated Code Quality & Testing
 
-When executing `git commit`, the following checks run automatically on your local machine:
+When executing `git commit`, the configured checks run automatically on the local machine.
+
+The development workflow includes:
 
 * **Ruff**: Static code analysis, formatting, and detection of syntax issues or unused variables.
 * **Pytest (+ nbmake)**: Verification and execution tests for Python scripts and Jupyter Notebook (`.ipynb`) cells.
 
 #### Running Tests Manually
 
-To manually verify all files before committing, run:
+To manually verify the repository before committing, run:
 
 ```bash
-# Manually run Ruff and Pytest on all files
+# Run pre-commit checks on all files
 uv run pre-commit run --all-files
 
-# Run Pytest only (verifies .py and .ipynb files)
+# Run Pytest with Jupyter Notebook execution
 uv run pytest --nbmake
 
-# Run Ruff only (code linting and auto-fix)
+# Run Ruff
 uv run ruff check --fix
-
 ```
 
 ---
@@ -720,7 +845,3 @@ The following topics are planned for future releases:
 * Advanced numerical analysis in civil engineering
 
 The goal is to develop this repository into a **practical learning resource that helps civil engineering students progress from learning Python to actually working with real-world civil engineering data**.
-
-```
-
-```
