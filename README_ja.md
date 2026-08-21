@@ -225,7 +225,8 @@ civil-engineering-python/
 │
 ├── qiita_05_numpy/
 │   ├── README.md
-│   └── qiita_doboku_5.ipynb
+│   ├── qiita_doboku_5.ipynb
+│   └── qiita_doboku_5.py
 │
 └── qiita_06_scipy/
     ├── README.md
