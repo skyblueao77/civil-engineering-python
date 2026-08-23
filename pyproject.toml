@@ -5,6 +5,7 @@ description = "Python learning materials for civil engineering students"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
+    "geopandas>=1.1.4",
     "html5lib>=1.1",
     "ipykernel>=7.3.0",
     "jupyter>=1.1.1",
