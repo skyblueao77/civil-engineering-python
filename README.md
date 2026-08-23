@@ -10,6 +10,15 @@
 [![Secret Scanning](https://img.shields.io/badge/Secret%20Scanning-enabled-green.svg)](https://github.com/skyblueao77/civil-engineering-python/security/secret-scanning)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
 
+土木工学を学ぶ学生のための Python 入門用学習教材リポジトリです。
+
+本プロジェクトは、これから Python の学習を始める土木専攻の学生を対象としています。以下のステップに沿って、土木分野における Python 活用の基礎を網羅的に学べるよう構成されています。
+
+環境構築 → Python の基礎 → データ処理 → 可視化 → 数値計算
+
+本リポジトリは、Qiita に連載中の解説記事、Jupyter Notebook、および Python スクリプトと連動して学習を進められるよう設計されています。
+[🇯🇵 日本語はこちらから](README_ja.md)
+
 A Python introductory learning resource for students studying civil engineering.
 
 This project is designed for civil engineering students who are beginning to learn Python. It covers the fundamentals of using Python in civil engineering through the following progression:
