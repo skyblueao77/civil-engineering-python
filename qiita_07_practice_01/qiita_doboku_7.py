@@ -49,7 +49,7 @@ print(f"変換後のCRS: {points_projected.crs}")
 
 # %% 距離の計算
 # 1つ目の観測地点から他の観測地点までの距離（m）
-point_a = cast(Point, cast(object, points_projected.geometry.iloc[0]))
+point_a = cast(Point, points_projected.geometry.iloc[0])
 distances = points_projected.geometry.distance(point_a)
 print("A観測地点からの距離（m）:")
 print(distances.round(2))
