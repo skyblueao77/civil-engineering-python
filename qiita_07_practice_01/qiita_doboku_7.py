@@ -1,13 +1,15 @@
-#%% モジュールのインポート
+# %% モジュールのインポート
+from typing import cast
+
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import matplotlib_fontja  # noqa: F401
 from shapely.geometry import LineString, Point, Polygon
 
-#%% GeoPandasのバージョン確認
+# %% GeoPandasのバージョン確認
 print(f"GeoPandas: {gpd.__version__}")
 
-#%% GeoDataFrameの作成
+# %% GeoDataFrameの作成
 # 大阪周辺の地点を、経度・緯度（EPSG:4326）で作成する
 points = gpd.GeoDataFrame(
     {
@@ -25,35 +27,34 @@ points = gpd.GeoDataFrame(
 print(points)
 print(points.geometry)
 
-#%% GeoSeriesから座標を取り出す
+# %% GeoSeriesから座標を取り出す
 print("経度:")
 print(points.geometry.x)
 print("緯度:")
 print(points.geometry.y)
 
-#%% GeoJSONなどのファイルを読み込む場合
+# %% GeoJSONなどのファイルを読み込む場合
 # 実際のファイルを使うときは、次のように読み込む
 # areas = gpd.read_file("data/sample.geojson")
 # print(areas.head())
 # print(areas.info())
 
-#%% CRSの確認と投影座標系への変換
+# %% CRSの確認と投影座標系への変換
 print(f"変換前のCRS: {points.crs}")
 
 # 大阪を含む近畿地方ではJGD2011平面直角座標系第6系を使用する
 # このCRSの座標単位はメートルなので、距離や面積を計算できる
-points_projected = points.to_crs("EPSG:6669")
+points_projected = points.to_crs("EPSG:6674")
 print(f"変換後のCRS: {points_projected.crs}")
 
-#%% 距離の計算
+# %% 距離の計算
 # 1つ目の観測地点から他の観測地点までの距離（m）
-distances = points_projected.geometry.iloc[0].distance(
-    points_projected.geometry
-)
+point_a = cast(Point, cast(object, points_projected.geometry.iloc[0]))
+distances = points_projected.geometry.distance(point_a)
 print("A観測地点からの距離（m）:")
 print(distances.round(2))
 
-#%% 属性情報による色分け
+# %% 属性情報による色分け
 ax = points.plot(
     column="population",
     legend=True,
@@ -65,7 +66,7 @@ ax.set_xlabel("経度")
 ax.set_ylabel("緯度")
 plt.show()
 
-#%% バッファの作成
+# %% バッファの作成
 # EPSG:4326のままではなく、メートル単位のCRSで100 mのバッファを作る
 buffers = points_projected.geometry.buffer(100)
 
@@ -83,7 +84,7 @@ ax.set_title("観測地点から100 mのバッファ")
 ax.set_aspect("equal")
 plt.show()
 
-#%% クリップ
+# %% クリップ
 # 道路と対象区域をサンプルデータとして作成する
 roads = gpd.GeoDataFrame(
     {"road_name": ["道路1", "道路2"]},
@@ -92,7 +93,7 @@ roads = gpd.GeoDataFrame(
         LineString([(134.995, 34.710), (135.015, 34.710)]),
     ],
     crs="EPSG:4326",
-).to_crs("EPSG:6669")
+).to_crs("EPSG:6674")
 
 study_area = gpd.GeoDataFrame(
     {"area_name": ["解析対象区域"]},
@@ -107,7 +108,7 @@ study_area = gpd.GeoDataFrame(
         )
     ],
     crs="EPSG:4326",
-).to_crs("EPSG:6669")
+).to_crs("EPSG:6674")
 
 clipped_roads = gpd.clip(roads, study_area)
 print("解析対象区域内の道路:")
@@ -119,7 +120,7 @@ ax.set_title("解析対象区域でクリップした道路")
 ax.set_aspect("equal")
 plt.show()
 
-#%% 空間結合
+# %% 空間結合
 # 観測地点がどの区域に含まれるかを、位置関係で結合する
 areas = gpd.GeoDataFrame(
     {"area_name": ["西側区域", "東側区域"]},
