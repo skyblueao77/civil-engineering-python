@@ -1,146 +1,241 @@
-# Python for Civil Engineering (土木のためのPython 入門)
 
-[English README](README.md)
+# 土木工学のための Python 入門 (Python for Civil Engineering)
 
-土木工学、環境工学、都市工学などを学ぶ学生のための、Python入門学習用リソースです。
+[ English Version](README.md)
 
-本プロジェクトは、これからPythonの学習を始める学生向けに設計されています。以下のステップを通して、土木分野におけるPython活用の基礎を網羅的に学ぶことができます。
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Python Version](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/)
+[![Managed by uv](https://img.shields.io/badge/python--package--manager-uv-de5b88.svg)](https://docs.astral.sh/uv/)
+[![Security Policy](https://img.shields.io/badge/Security-Policy-green.svg)](https://github.com/skyblueao77/civil-engineering-python/security/policy)
+[![Dependabot](https://img.shields.io/badge/Dependabot-enabled-green.svg)](https://github.com/skyblueao77/civil-engineering-python/security/dependabot)
+[![Secret Scanning](https://img.shields.io/badge/Secret%20Scanning-enabled-green.svg)](https://github.com/skyblueao77/civil-engineering-python/security/secret-scanning)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/)
 
-**環境構築 → Pythonの基礎 → データ処理 → 視覚化 → 数値計算 → 土木工学への応用**
+土木工学を学ぶ学生のための Python 入門用学習教材リポジトリです。
 
-本リポジトリは、Qiitaの記事、Jupyter Notebook、Pythonスクリプトとあわせて活用することを想定しています。
+本プロジェクトは、これから Python の学習を始める土木専攻の学生を対象としています。以下のステップに沿って、土木分野における Python 活用の基礎を網羅的に学べるよう構成されています。
+
+**環境構築 → Python の基礎 → データ処理 → 可視化 → 数値計算**
+
+本リポジトリは、Qiita に連載中の解説記事、Jupyter Notebook、および Python スクリプトと連動して学習を進められるよう設計されています。
 
 ---
 
 ## 目次
 
-* [対象読者](https://www.google.com/search?q=%23%E5%AF%BE%E8%B1%A1%E8%AA%AD%E8%80%85)
-* [学べること](https://www.google.com/search?q=%23%E5%AD%A6%E3%81%B9%E3%82%8B%E3%81%93%E3%81%A8)
-* [記事と学習教材](https://www.google.com/search?q=%23%E8%A8%98%E4%BA%8B%E3%81%A8%E5%AD%A6%E7%BF%92%E6%95%99%E6%9D%90)
-* [リポジトリ構成](https://www.google.com/search?q=%23%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E6%A7%8B%E6%88%90)
-* [環境構築](https://www.google.com/search?q=%23%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89)
-* [方法1: Google Colabを使う](https://www.google.com/search?q=%23%E6%96%B9%E6%B3%951-google-colab%E3%82%92%E4%BD%BF%E3%81%86)
-* [方法2: uv + PyCharmを使う](https://www.google.com/search?q=%23%E6%96%B9%E6%B3%952-uv--pycharm%E3%82%92%E4%BD%BF%E3%81%86)
-
-
-* [依存パッケージ](https://www.google.com/search?q=%23%E4%BE%9D%E5%AD%98%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8)
-* [再現性と依存関係の管理](https://www.google.com/search?q=%23%E5%86%8D%E7%8F%BE%E6%80%A7%E3%81%A8%E4%BE%9D%E5%AD%98%E9%96%A2%E4%BF%82%E3%81%AE%E7%AE%A1%E7%90%86)
-* [セキュリティとコード品質](https://www.google.com/search?q=%23%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%81%A8%E3%82%B3%E3%83%BC%E3%83%89%E5%93%81%E8%B3%AA)
-* [Pythonの実行方法](https://www.google.com/search?q=%23python%E3%81%AE%E5%AE%9F%E8%A1%8C%E6%96%B9%E6%B3%95)
-* [Jupyter Notebookについて](https://www.google.com/search?q=%23jupyter-notebook%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
-* [土木工学におけるPython](https://www.google.com/search?q=%23%E5%9C%9F%E6%9C%A8%E5%B7%A5%E5%AD%A6%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8Bpython)
-* [AI時代のPython学習](https://www.google.com/search?q=%23ai%E6%99%82%E4%BB%A3%E3%81%AEpython%E5%AD%A6%E7%BF%92)
-* [推奨する学習ロードマップ](https://www.google.com/search?q=%23%E6%8E%A8%E5%A5%A8%E3%81%99%E3%82%8B%E5%AD%A6%E7%BF%92%E3%83%AD%E3%83%BC%E3%83%89%E3%83%9E%E3%83%83%E3%83%97)
-* [推奨環境](https://www.google.com/search?q=%23%E6%8E%A8%E5%A5%A8%E7%92%B0%E5%A2%83)
-* [トラブルシューティング](https://www.google.com/search?q=%23%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0)
-* [開発者の方へ](https://www.google.com/search?q=%23%E9%96%8B%E7%99%BA%E8%80%85%E3%81%AE%E6%96%B9%E3%81%B8)
-* [免責事項](https://www.google.com/search?q=%23%E5%85%8D%E8%B2%AC%E4%BA%8B%E9%A0%85)
-* [ライセンス](https://www.google.com/search?q=%23%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9)
-* [著者](https://www.google.com/search?q=%23%E8%91%97%E8%80%85)
-* [関連リンク](https://www.google.com/search?q=%23%E9%96%A2%E9%80%A3%E3%83%AA%E3%83%B3%E3%82%AF)
-* [今後の予定](https://www.google.com/search?q=%23%E4%BB%8A%E5%BE%8C%E3%81%AE%E4%BA%88%E5%AE%9A)
+- [対象読者](#対象読者)
+- [学べること](#学べること)
+- [解説記事一覧 (Qiita)](#解説記事一覧-qiita)
+  - [Vol.1 環境構築編](#vol1-環境構築編)
+  - [Vol.2 Python 基礎編](#vol2-python-基礎編)
+  - [Vol.3 pandas 入門編](#vol3-pandas-入門編)
+  - [Vol.4 Matplotlib 入門編](#vol4-matplotlib-入門編)
+  - [Vol.5 NumPy 入門編](#vol5-numpy-入門編)
+  - [Vol.6 SciPy 入門編](#vol6-scipy-入門編)
+- [リポジトリの構成](#リポジトリの構成)
+- [環境構築](#環境構築)
+  - [方法 1: Google Colab を使う場合](#方法-1-google-colab-を使う場合)
+  - [方法 2: uv + PyCharm を使う場合（ローカル環境）](#方法-2-uv--pycharm-を使う場合ローカル環境)
+- [`uv sync` について](#uv-sync-について)
+- [依存パッケージ](#依存パッケージ)
+- [環境の再現性と依存関係管理](#環境の再現性と依存関係管理)
+- [セキュリティとコード品質](#セキュリティとコード品質)
+- [Python スクリプトの実行](#python-スクリプトの実行)
+- [Jupyter Notebook について](#jupyter-notebook-について)
+- [土木工学における Python の活用](#土木工学における-python-の活用)
+- [AI 時代における Python 学習の意義](#ai-時代における-python-学習の意義)
+- [推奨される学習ロードマップ](#推奨される学習ロードマップ)
+- [推奨環境](#推奨環境)
+- [トラブルシューティング](#トラブルシューティング)
+- [開発者向け情報](#開発者向け情報)
+- [免責事項](#免責事項)
+- [ライセンス](#ライセンス)
+- [著者](#著者)
+- [関連リンク](#関連リンク)
+- [今後の更新予定](#今後の更新予定)
 
 ---
 
 ## 対象読者
 
-本プロジェクトは以下のような方を対象としています。
+本プロジェクトは、以下のような方を対象としています。
 
-* 土木工学を専攻する学生
-* 環境工学を専攻する学生
-* 都市工学を専攻する学生
-* Pythonの学習を始めたい学生
-* プログラミング初心者
-* 土木分野でデータ分析を行いたい学生
-* NumPy、pandas、Matplotlib、SciPyを学びたい学生
-* AIが生成したPythonコードの仕組みを理解し、検証したい学生
-* Pythonが土木分野でどのように活用できるか知りたい学生
-
-高度なプログラミング経験は不要です。
+* 土木工学（社会基盤工学・都市工学等）を学ぶ学生
+* これから Python の学習を始めたいプログラミング初心者
+* 土木分野でのデータ分析や数値シミュレーションに興味がある方
+* NumPy、pandas、Matplotlib、SciPy などの標準的なライブラリを学びたい方
+* AI（生成AI）が出力した Python コードの意味を理解し、検証できるようになりたい方
+* 「土木分野で Python がどう役立つのか」を知りたい方
 
 ---
 
 ## 学べること
 
-本プロジェクトを通して、工学やデータ分析にPythonを活用するための基礎知識を習得できます。
+現在、以下のコンテンツを提供しています。
 
-主なテーマは以下の通りです。
+| 巻数 | コンテンツ名 | 主なテーマ |
+| ------ | ------- | ----------- |
+| Vol.1 | 環境構築編 | Google Colab / uv / PyCharm / Python 開発環境 |
+| Vol.2 | Python 基礎編 | 変数 / データ型 / 条件分岐 / 繰り返し処理 / リスト |
+| Vol.3 | pandas 入門編 | DataFrame / Series / データ抽出 / CSV操作 / 基本統計量 |
+| Vol.4 | Matplotlib 入門編 | 折れ線グラフ / 散布図 / 軸設定 / 凡例 / グラフの保存 |
+| Vol.5 | NumPy 入門編 | ndarray / 配列演算 / ベクトル化 / 数値計算の基礎 |
+| Vol.6 | SciPy 入門編 | 補間処理 / 数値積分 / 数値微分 / 科学技術計算 |
 
-* Python開発環境の構築方法
-* Pythonの基本構文とプログラミングの概念
-* pandasによるデータ処理
-* Matplotlibによるデータの可視化
-* NumPyによる数値計算
-* SciPyによる科学技術計算
-* Jupyter Notebookの使い方
-* uvを用いたPython環境および依存関係の管理
-* 土木工学の課題に対するPythonの応用
-* AIが生成したPythonコードの理解と検証
-
-今後の教材では、土木データの分析、GIS・空間データ、実際の公共データセットの活用、より高度な数値計算などにも展開していく予定です。
+今後は、実際の土木データを用いた分析、GIS（空間情報）、実データ解析、高度な数値シミュレーションなどのコンテンツを追加予定です。
 
 ---
 
-## 記事と学習教材
+## 解説記事一覧 (Qiita)
 
-現在利用可能な教材は以下の通りです。
+### Vol.1 環境構築編
 
-| 巻 | テーマ | GitHub教材 | Qiita記事 |
-| --- | --- | --- | --- |
-| Vol.1 | 環境構築 | リポジトリルート | [https://qiita.com/skyblueao77/items/c4a0e7ddc9913c55994f](https://qiita.com/skyblueao77/items/c4a0e7ddc9913c55994f) |
-| Vol.2 | Pythonの基礎 | `./qiita_02_basic/` | [https://qiita.com/skyblueao77/items/65abd5ad5befa474ee5f](https://qiita.com/skyblueao77/items/65abd5ad5befa474ee5f) |
-| Vol.3 | pandas入門 | `./qiita_03_pandas/` | [https://qiita.com/skyblueao77/items/c8c4902706f97415d1ec](https://qiita.com/skyblueao77/items/c8c4902706f97415d1ec) |
-| Vol.4 | Matplotlib入門 | `./qiita_04_matplotlib/` | [https://qiita.com/skyblueao77/items/45da8225a78e99d28cc5](https://qiita.com/skyblueao77/items/45da8225a78e99d28cc5) |
-| Vol.5 | NumPy入門 | `./qiita_05_numpy/` | [https://qiita.com/skyblueao77/items/dfc9a12c147230814424](https://qiita.com/skyblueao77/items/dfc9a12c147230814424) |
-| Vol.6 | SciPy入門 | `./qiita_06_scipy/` | [https://qiita.com/skyblueao77/items/a1306b9cd6c06671191b](https://qiita.com/skyblueao77/items/a1306b9cd6c06671191b) |
+**【土木のためのPython入門】Vol.1 環境構築編（Google Colab / uv 入門）**
 
-各巻には基本的に以下が含まれます。
+学習を始めるための Python 開発環境のセットアップ方法について解説しています。
 
-* 解説用のQiita記事
-* インタラクティブに学べるJupyter Notebook
-* サンプルコードが含まれたPythonスクリプト
-* その巻固有の情報をまとめたREADME
+主なトピック：
+* Google Colab の使い方
+* PyCharm の導入
+* uv による環境構築
+* Python 仮想環境の仕組み
 
-> **今後の追加について:**
-> 新しい記事が公開された際は、上記の表に1行追加し、対応する `qiita_XX_topic/` ディレクトリを追加する運用となっています。
-> このREADMEのその他のセクションを毎回更新する必要はありません。
+[👉 Qiita 記事: Vol.1 環境構築編](https://qiita.com/skyblueao77/items/c4a0e7ddc9913c55994f)
 
 ---
 
-## リポジトリ構成
+### Vol.2 Python 基礎編
 
-本リポジトリでは、各巻で統一された構成を採用しています。
+**【土木のためのPython入門】Vol.2 Pythonの基本文法**
+
+Python を扱う上で必要となる最重要の基本文法を解説しています。
+
+主なトピック：
+* 変数とデータ型
+* 四則演算と数値処理
+* 条件分岐（if 文）
+* 繰り返し処理（for / while 文）
+* リスト操作
+
+※土木工学での応用を意識した実践的な例題を扱っています。
+
+[👉 Qiita 記事: Vol.2 Pythonの基本文法](https://qiita.com/skyblueao77/items/65abd5ad5befa474ee5f)
+
+---
+
+### Vol.3 pandas 入門編
+
+**【土木のためのPython入門】Vol.3 pandasによるデータ処理入門**
+
+土木分野でよく扱う表形式データ（観測データ等）を pandas で効率的に処理する方法を解説しています。
+
+主なトピック：
+* DataFrame と Series の扱い方
+* データの作成と参照
+* 行・列の抽出と条件フィルタリング
+* 基本統計量の算出
+* CSV ファイルの読み込み・書き出し
+
+[👉 Qiita 記事: Vol.3 pandasによるデータ処理入門](https://qiita.com/skyblueao77/items/c8c4902706f97415d1ec)
+
+---
+
+### Vol.4 Matplotlib 入門編
+
+**【土木のためのPython入門】Vol.4 Matplotlibによるデータ可視化入門**
+
+pandas 等で整理した土木データを Matplotlib を用いてグラフとして可視化する方法を解説しています。
+
+主なトピック：
+* 折れ線グラフ・散布図の作成
+* 軸ラベル、タイトル、凡例の設定
+* グラフの日本語描画対応
+* 画像ファイルとしての保存方法
+
+[👉 Qiita 記事: Vol.4 Matplotlibによるデータ可視化入門](https://qiita.com/skyblueao77/items/45da8225a78e99d28cc5)
+
+---
+
+### Vol.5 NumPy 入門編
+
+**【土木のためのPython入門】Vol.5 NumPy入門 — 配列・行列演算と数値計算の基礎**
+
+土木数値計算の基礎となる NumPy の扱い方について解説しています。
+
+主なトピック：
+* ndarray（多次元配列）の基礎
+* 配列の作成と形状変更
+* インデックス参照とスライス
+* 要素ごとの演算とベクトル化処理
+* 基本的な数値計算手法
+
+[👉 Qiita 記事: Vol.5 NumPy入門 — 配列・行列演算と数値計算の基礎](https://qiita.com/skyblueao77/items/dfc9a12c147230814424)
+
+---
+
+### Vol.6 SciPy 入門編
+
+**【土木のためのPython入門】Vol.6 科学技術計算ライブラリ SciPy 入門 — 補間・数値積分・数値微分・最適化**
+
+NumPy をベースにした、より発展的な科学技術計算用ライブラリ SciPy について解説しています。
+
+主なトピック：
+* データ点の補間処理（線形補間・スプライン補間など）
+* 数値積分と数値微分
+* 高度な科学技術計算
+* NumPy と SciPy の使い分け
+
+[👉 Qiita 記事: Vol.6 科学技術計算ライブラリ SciPy 入門](https://qiita.com/skyblueao77/items/a1306b9cd6c06671191b)
+
+---
+
+## リポジトリの構成
+
+本リポジトリは、**プロジェクト全体で単一の Python 共通環境**を使用しています。
 
 ```text
 civil-engineering-python/
 │
-├── .github/
 ├── .gitignore
 ├── .python-version
-├── .pre-commit-config.yaml
-│
 ├── pyproject.toml
 ├── uv.lock
-│
 ├── README.md
 ├── README_ja.md
 ├── LICENSE
 ├── SECURITY.md
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
+├── .pre-commit-config.yaml
 │
-├── qiita_XX_topic/
+├── qiita_02_basic/
 │   ├── README.md
-│   ├── *.ipynb
-│   └── *.py
+│   ├── civil_engineering_python_intro_02.ipynb
+│   └── qiita_doboku_2.py
 │
-└── ...
+├── qiita_03_pandas/
+│   ├── README.md
+│   ├── qiita_doboku_3.ipynb
+│   └── qiita_doboku_3.py
+│
+├── qiita_04_matplotlib/
+│   ├── README.md
+│   ├── qiita_doboku_4.ipynb
+│   └── qiita_doboku_4.py
+│
+├── qiita_05_numpy/
+│   ├── README.md
+│   ├── qiita_doboku_5.ipynb
+│   └── qiita_doboku_5.py
+│
+└── qiita_06_scipy/
+    ├── README.md
+    ├── qiita_doboku_6.ipynb
+    └── qiita_doboku_6.py
 
 ```
 
-各 `qiita_XX_topic/` ディレクトリは、基本的に「土木のためのPython入門」シリーズの各巻に対応しています。
-
-Python環境は、以下のファイルを用いてプロジェクトルートで一括管理されています。
+Python 環境の設定ファイルはプロジェクトルートで一元管理されています。
 
 ```text
 pyproject.toml
@@ -149,277 +244,288 @@ uv.lock
 
 ```
 
-巻ごとに個別環境を作成するのではなく、シリーズ全体で1つの統一されたPython環境を共有しています。
+各話のディレクトリには、それぞれのテーマに対応する Jupyter Notebook（`.ipynb`）、Python スクリプト（`.py`）、および README が配置されています。
 
 ---
 
 ## 環境構築
 
-本リポジトリでは、Python環境およびプロジェクトの依存関係管理に [uv](https://docs.astral.sh/uv/) を採用しています。
+本リポジトリでは、パッケージおよび環境管理ツールとして [`uv`](https://docs.astral.sh/uv/) を採用しています。
 
-基本構成は以下の通りです。
+本プロジェクトの主要な開発構成：
 
 * Python 3.13
 * uv
-* Jupyter
-* ipykernel
-* NumPy
-* pandas
-* Matplotlib
-* SciPy
+* Jupyter / ipykernel
+* PyCharm
+* NumPy / pandas / Matplotlib / SciPy
 
-学習教材の利用方法は、大きく分けて2通りあります。
+なお、ローカルに環境を作らず手軽に試したい場合は、Google Colab を利用することも可能です。
 
 ---
 
-### 方法1: Google Colabを使う
+### 方法 1: Google Colab を使う場合
 
-**「まずは手軽にPythonを試してみたい」という方におすすめの方法です。**
+**「まずは手軽に Python を動かしてみたい」という方にオススメの方法です。**
 
-Google Colab（Google Colaboratory）を使用すると、ローカル環境にPythonをインストールすることなく、ウェブブラウザ上で直接Pythonコードを実行できます。
+Google Colab を使うと、Web ブラウザ上だけで Python コードを実行できます。
 
-対応するJupyter Notebookをアップロードまたは開くだけで、対話的にコードを実行することが可能です。
+各記事に設置されている「Open in Colab」ボタンから Notebook を開くことで、自分のパソコンに Python や Jupyter をインストールすることなく学習をスタートできます。
 
-以下のような方に適しています。
+#### こんな方にオススメ：
 
-* とりあえずPythonを動かしてみたい方
-* ローカルの環境構築なしで手軽に学びたい方
-* パソコンにPythonをインストールしたくない方
-* ブラウザ上でJupyter Notebookを実行したい方
-
-利用はこちらから:
-
-[Google Colab](https://colab.research.google.com/)
+* まずは気軽に Python を触ってみたい方
+* ローカル環境の構築でつまずきたくない方
+* PC のストレージを圧迫したくない方
+* ブラウザ上でサクサク Notebook を動かしたい方
 
 ---
 
-### 方法2: uv + PyCharmを使う
+### 方法 2: uv + PyCharm を使う場合（ローカル環境）
 
-**「今後も継続してPythonを勉強したい」「ローカルでリポジトリを使って作業したい」という方におすすめの方法です。**
+**「本格的に Python を学び、継続的に開発や解析を行いたい」という方にオススメの方法です。**
 
-本プロジェクトでは、リポジトリ全体のPython環境を `uv` で管理しています。
+本プロジェクトでは `uv` を使用してリポジトリ全体の Python 環境を管理しています。
 
-`uv` を使うことで、Pythonのバージョン管理、仮想環境の作成、依存パッケージの管理をまとめて行うことができます。
+`uv` は、Python のバージョン切り替え、仮想環境の作成、パッケージ導入を高速かつ一元的に行えるモダンなツールです。
 
-### 1. PyCharmのインストール
+#### 1. PyCharm のインストール
 
-PyCharmを使用する場合は、公式サイトからダウンロードしてインストールしてください。
+PyCharm を利用する場合は、公式サイトよりインストールしてください。
 
-[https://www.jetbrains.com/pycharm/](https://www.jetbrains.com/pycharm/)
+[PyCharm 公式サイト](https://www.jetbrains.com/pycharm/)
 
-### 2. uvのインストール
+#### 2. uv のインストール
 
-公式ドキュメントに従って `uv` をインストールします。
+公式ドキュメントの手順に従って `uv` をインストールします。
 
-[https://docs.astral.sh/uv/](https://docs.astral.sh/uv/)
+[uv 公式ドキュメント](https://docs.astral.sh/uv/)
 
-インストール後、以下のコマンドで動作確認を行います。
+Windows（PowerShell）の場合は、公式に案内されているコマンドでインストール可能です。
+
+インストール後、以下のコマンドで動作を確認します。
 
 ```powershell
 uv --version
 
 ```
 
-バージョン番号が表示されれば、正常にインストールされています。
+バージョン番号が表示されればインストール完了です。
 
-### 3. リポジトリのクローン
+#### 3. リポジトリのクローン
 
-Gitがインストールされている場合は、リポジトリをクローンします。
+Git がインストールされている環境で、リポジトリをクローンします。
 
 ```powershell
-git clone https://github.com/skyblueao77/civil-engineering-python.git
+git clone [https://github.com/skyblueao77/civil-engineering-python.git](https://github.com/skyblueao77/civil-engineering-python.git)
 
 ```
 
-ディレクトリに移動します。
+クローン後、ディレクトリに移動します。
 
 ```powershell
 cd civil-engineering-python
 
 ```
 
-### 4. Python環境の構築
+#### 4. Python 環境の構築
 
-プロジェクトのルートディレクトリで以下のコマンドを実行します。
+**プロジェクトのルートディレクトリで** 以下のコマンドを実行します。
 
 ```powershell
 uv sync
 
 ```
 
-`uv sync` を実行すると、`pyproject.toml` と `uv.lock` に基づいてプロジェクト環境が自動的に構築・更新されます。
+`uv sync` を実行すると、`pyproject.toml` および `uv.lock` に基づいて必要な依存パッケージと仮想環境が自動的にセットアップされます。
 
-なお、本リポジトリでは巻ごとに個別の環境を作成しません。
+※各話ごとに個別環境を作る必要はありません。**シリーズ全体で 1 つの共通環境を使用します。**
 
-**シリーズ全体で共通の1つのPython環境を使用します。**
-
-### 5. Pythonバージョンの確認
-
-以下のコマンドで指定のバージョンになっているか確認します。
+#### 5. Python バージョンの確認
 
 ```powershell
 uv run python --version
 
 ```
 
-現在、本リポジトリでは Python 3.13 をターゲットにしています。
+`Python 3.13` と表示されれば基礎環境の構築は完了です。
 
-### 6. JupyterLabの起動
+#### 6. Jupyter の起動
 
-プロジェクトルートから以下を実行します。
+ルートディレクトリから以下を実行します。
 
 ```powershell
 uv run jupyter lab
 
 ```
 
-または、Jupyter NotebookをサポートしているIDE（PyCharm等）で直接 `.ipynb` ファイルを開くことも可能です。
+または、PyCharm 内で直接 `.ipynb` ファイルを開いて実行することも可能です。
 
-### 7. 学習教材を開く
+#### 7. Notebook を開く
 
-勉強したい巻に対応するディレクトリを選択します。
+例として、各話の Notebook は以下のように配置されています。
 
-（例）
+* Vol.2 の場合: `qiita_02_basic/civil_engineering_python_intro_02.ipynb`
+* Vol.3 の場合: `qiita_03_pandas/qiita_doboku_3.ipynb`
+
+目的に応じた Notebook を開いて学習を進めてください。
+
+---
+
+## `uv sync` について
+
+本リポジトリでは、プロジェクトルートにて Python 環境および依存関係を一元管理しています。
 
 ```text
-qiita_03_pandas/
-├── README.md
-├── qiita_doboku_3.ipynb
-└── qiita_doboku_3.py
+civil-engineering-python/
+├── pyproject.toml
+├── uv.lock
+└── .python-version
 
 ```
 
-READMEを読みながら、Notebookを実行したりサンプルコードを書き換えたりして学習を進めてください。
-
----
-
-## 依存パッケージ
-
-現在利用している主なパッケージは以下の通りです。
-
-| パッケージ | 用途 |
-| --- | --- |
-| NumPy | 数値計算・配列処理 |
-| pandas | 表形式データの処理 |
-| Matplotlib | データの可視化（グラフ描画） |
-| SciPy | 科学技術計算 |
-| Jupyter | ノートブック環境 |
-| ipykernel | Pythonカーネル |
-
-使用されている具体的な依存関係やバージョンは、リポジトリルートの管理ファイルによって固定・解決されています。
-
----
-
-## 再現性と依存関係の管理
-
-教育用コードや数値計算環境を共有する際、環境の「再現性」は非常に重要です。
-
-本リポジトリでは、以下のファイルを用いてPython環境を管理しています。
-
-| ファイル | 用途 |
-| --- | --- |
-| `pyproject.toml` | プロジェクト設定および依存関係の定義 |
-| `uv.lock` | 解決された依存パッケージの正確なバージョン記録 |
-| `.python-version` | プロジェクトで使用するPythonバージョンの指定 |
-
-各巻ごとに環境を分けるのではなく、ルートにある単一の環境を使用します。
-
-リポジトリをクローンした後は、以下を実行するだけで環境が再現されます。
+そのため、パッケージの同期や初回セットアップ時には常にリポジトリ直下で以下を実行してください。
 
 ```powershell
 uv sync
 
 ```
 
-ロックファイル（`uv.lock`）を使用することで、開発環境ごとの予期せぬパッケージバージョンのズレを防ぐことができます。
+`uv.lock` ファイルには解決済みの具体的なパッケージバージョンが記録されており、どの端末からでも全く同じ環境を正確に再現することができます。
 
-ただし、再現性の確保がすべてのセキュリティ脆弱性の排除を保証するわけではありません。開発ツールやパッケージは定期的に更新し、必要に応じてセキュリティアドバイザリを確認することをお勧めします。
+---
+
+## 依存パッケージ
+
+現在プロジェクトで使用している主なパッケージは以下の通りです。
+
+| パッケージ名 | 用途・機能 |
+| --- | --- |
+| NumPy | 高速な数値計算・多次元配列処理 |
+| pandas | 表形式データの処理・解析・操作 |
+| Matplotlib | データのグラフ化・可視化 |
+| SciPy | 科学技術計算（補間・積分・微分・最適化など） |
+| Jupyter | 対話型 Notebook 実行環境 |
+| ipykernel | Jupyter 用の Python カーネル |
+
+依存関係の定義はすべてルートの `pyproject.toml` で管理されています。
+
+---
+
+## 環境の再現性と依存関係管理
+
+教材コードの共有や数値計算において、実行環境の再現性を確保することは非常に重要です。
+
+本リポジトリでは、以下のファイルを用いて正確な Python 環境を保持しています。
+
+| ファイル名 | 役割 |
+| --- | --- |
+| `pyproject.toml` | プロジェクト設定および依存パッケージの定義 |
+| `uv.lock` | バージョン競合を解決した固定依存関係の記録 |
+| `.python-version` | プロジェクトで使用する Python バージョンの指定 |
+
+リポジトリ全体で単一の共通環境を採用することで、開発環境による動作の違いを最小限に抑えています。
+
+環境構築時は以下を実行するだけで完了します。
+
+```powershell
+uv sync
+
+```
+
+ロックファイルを適用することで環境依存のエラーを防ぐことができますが、これだけでセキュリティが万全になるわけではありません。定期的にライブラリのアップデートを行い、セキュリティ情報のチェックを行うことを推奨します。
 
 ---
 
 ## セキュリティとコード品質
 
-セキュリティ管理、依存関係の更新、環境の再現性、そしてコードの品質維持は、本リポジトリの開発プロセスの一環として扱われています。
+本リポジトリでは、開発プロセスの一環としてセキュリティ、依存関係管理、環境再現性、およびコード品質の維持に取り組んでいます。
 
-### GitHubセキュリティ機能
+### GitHub セキュリティ機能
 
-本リポジトリでは、安全な開発環境を維持するためにGitHubのセキュリティ機能を活用しています。
+安全で健全な開発環境を保つため、以下の GitHub セキュリティ機能を有効化しています。
 
-* **Security Policy**: 脆弱性を発見した際のアドバイザリ・報告手順
-* **Security Advisories**: リポジトリの脆弱性情報を管理するGitHub標準機構
-* **Private Vulnerability Reporting**: 非公開での脆弱性報告窓口
-* **Dependabot Alerts**: 依存パッケージの既知の脆弱性を自動監視
-* **Secret Scanning**: 誤ってコミットされた機密情報（APIキー等）の検知
+* **Security Policy** — 脆弱性を安全に報告するためのガイドラインの提供
+* **Security Advisories** — セキュリティ勧告の管理および開示メカニズム
+* **Private Vulnerability Reporting** — 脆弱性の非公開報告ルートの確立
+* **Dependabot Alerts** — 依存パッケージにおける既知の脆弱性の監視
+* **Secret Scanning** — 誤ってコミットされた機密情報（APIキー等）の検知
 
-関連リンク:
+[セキュリティポリシーを見る](https://github.com/skyblueao77/civil-engineering-python/security/policy)
 
-* [https://github.com/skyblueao77/civil-engineering-python/security/policy](https://github.com/skyblueao77/civil-engineering-python/security/policy)
-* [https://github.com/skyblueao77/civil-engineering-python/security/advisories](https://github.com/skyblueao77/civil-engineering-python/security/advisories)
-* [https://github.com/skyblueao77/civil-engineering-python/security/dependabot](https://github.com/skyblueao77/civil-engineering-python/security/dependabot)
-* [https://github.com/skyblueao77/civil-engineering-python/security/secret-scanning](https://github.com/skyblueao77/civil-engineering-python/security/secret-scanning)
+[セキュリティアドバイザリを見る](https://github.com/skyblueao77/civil-engineering-python/security/advisories)
 
-### コードスキャン
+[Dependabot アラートを見る](https://github.com/skyblueao77/civil-engineering-python/security/dependabot)
 
-CodeQLなどの静的解析ワークフローを使用した自動コードスキャンを設定・運用しています。
+[シークレットスキャン状況を見る](https://github.com/skyblueao77/civil-engineering-python/security/secret-scanning)
 
-設定されている場合、依存関係の監視や通常の開発チェックを補完する役割を果たします。
+### コードスキャン (Code Scanning)
 
-### Pre-commit チェック
+GitHub Code Scanning による自動静的解析は導入を計画中であり、今後準備が整い次第設定予定です。
 
-本リポジトリでは `pre-commit` を使用して開発チェックを自動化しています。
+### 依存関係の管理
 
-設定ファイル:
+プロジェクトの依存関係は以下で一元管理されています。
+
+```text
+pyproject.toml
+uv.lock
+.python-version
+
+```
+
+`uv.lock` ファイルにより意図しないパッケージ更新による破損を防ぎ、Dependabot によって常に最新の脆弱性情報をチェックしています。
+
+### Pre-commit による自動チェック
+
+コードのコミット前に自動で品質チェックを行うため、`pre-commit` を導入しています。
+
+設定ファイル：
 
 ```text
 .pre-commit-config.yaml
 
 ```
 
-開発ワークフローには以下のツールが含まれています。
+主な開発ワークフロー：
 
-* **Ruff**: 静的解析およびコード品質チェック
-* **Pytest**: 自動テスト
-* **nbmake**: Jupyter Notebookの実行テスト
+* **Ruff** — 静的解析、コード整形、品質チェック
+* **Pytest** — 自動単体テスト
+* **nbmake** — Jupyter Notebook の実行動作テスト
 
-手動で事前にチェックを実行したい場合は、以下を実行します。
+以下のコマンドで手動実行も可能です。
 
 ```bash
 uv run pre-commit run --all-files
 
 ```
 
-これらのチェックにより、フォーマット崩れ、文法エラー、未使用コード、スクリプトやNotebookの実行エラーなどを事前に検知できます。
+これにより、構文エラーや未定義変数、フォーマットの乱れ、Notebook の実行失敗などを事前に防止します。
 
-### セキュリティの範囲について
+### セキュリティに関する免責
 
-本リポジトリは学習・教育を目的としたものであり、高度なセキュリティを要する本番稼働システムではありません。
-
-記載されているセキュリティ機能や開発チェックは、リポジトリの衛生状態、依存関係の監視、再現性、およびコード品質を向上させるためのものです。
-
-これらは、本リポジトリや依存する全パッケージに完全に脆弱性がないことを保証するものではありません。
+本リポジトリは教育目的の教材であり、高セキュリティが求められるプロダクションシステムではありません。上記のセキュリティ対策やコードチェックは品質と安全性を高めるための取り組みであり、すべての脆弱性が存在しないことを保証するものではありません。
 
 ---
 
-## Pythonの実行方法
+## Python スクリプトの実行
 
-Pythonスクリプトは、プロジェクトルートから `uv run` を使用して実行できます。
-
-（例）
+Python スクリプト（`.py`）を実行する場合は、プロジェクトルートから以下のようにコマンドを実行します。
 
 ```powershell
 uv run python qiita_03_pandas/qiita_doboku_3.py
 
 ```
 
-`uv run` を使用することで、プロジェクトで正しく管理された環境のPythonが確実に使用されます。
+`uv run` を経由することで、プロジェクトに紐づく正確な仮想環境下でスクリプトが実行されます。
 
 ---
 
-## Jupyter Notebookについて
+## Jupyter Notebook について
 
-本教材では、主にJupyter Notebook（`.ipynb`）形式の教材を提供しています。
+本教材のコードは、主に Jupyter Notebook（`.ipynb`）形式で提供されています。
 
-Notebookを使用すると、以下のようなサイクルで学習を進めることができます。
+Notebook を使うと、以下のサイクルで学習をインタラクティブに進めることができます。
 
 ```text
 コードを書く
@@ -428,307 +534,247 @@ Notebookを使用すると、以下のようなサイクルで学習を進める
     ↓
 結果を確認する
     ↓
-コードを修正してみる
+コードを少し修正してみる
     ↓
 再度実行する
+    ↓
+（理解が深まる！）
 
 ```
 
-コードと出力結果を1ステップずつ確認できるため、プログラミング初心者にとって非常に扱いやすい形式です。
-
-最初からすべてを完璧に理解しようとする必要はありません。
-
-サンプルコードを少しずついじって動作の変化を試すことが、Python習得の近道です。
+プログラムを動かしながら試行錯誤したい初心者に最適な学習フォーマットです。
 
 ---
 
-## 土木工学におけるPython
+## 土木工学における Python の活用
 
-土木工学では、以下のように多種多様なデータを扱います。
+土木工学では、日常的に多様かつ膨大なデータを扱います。
 
-* 降水量データ
-* 水位データ
-* 河川流量データ
-* 交通量データ
-* 地形データ
+例：
+
+* 降水・気象データ
+* 河川の水位・流量データ
+* 交通量・人流データ
+* 点群・地形・標高データ
 * 測量データ
-* 土質・地盤データ
-* 構造物モニタリングデータ
-* 各種実験データ
-* 地理空間情報（GISデータ）
+* 地盤・土質試験データ
+* 構造物のモニタリング・センサーデータ
+* 各種水理・構造実験データ
 
-Pythonを活用することで、以下のような一連の業務・解析フローを効率化できます。
+Python を活用することで、以下の一連の流れを効率化・自動化することができます。
 
 ```text
-データを読み込む
+データの読み込み
     ↓
-データを整理・整形（クレンジング）する
+データの整理・前処理
     ↓
-計算処理を行う
+統計計算・各種物理シミュレーション
     ↓
-データを分析する
+グラフや地図への可視化
     ↓
-結果をグラフ等で可視化する
-    ↓
-分析結果を考察・評価する
+解析結果の考察・評価
 
 ```
 
-本プロジェクトでは、単にPythonの文法を覚えるだけでなく、以下を意識した学びを提供します。
-
-> **「土木分野でPythonをどのように活かすか？」**
-
-プログラミングの基礎と、実践的な工学解析を結びつけることを目指しています。
+本プロジェクトでは単に Python の文法を覚えるだけでなく、**「土木の実務や研究でどう活かせるか」** を常に考慮した構成にしています。
 
 ---
 
-## AI時代のPython学習
+## AI 時代における Python 学習の意義
 
-近年、生成AIを使えば簡単にPythonコードを出力できるようになりました。
+現在、生成 AI を使えば誰でも簡単に Python コードを生成できるようになりました。
 
-そのため、次のような疑問を持つ方も多いでしょう。
+そうした中で、
 
-> **「AIがコードを書いてくれるなら、人間がPythonを学ぶ必要はあるのか？」**
+> 「自分自身で Python コードの書き方を学ぶ必要はあるのか？」
 
-本プロジェクトは、AIを活用したプログラミングを否定するものではありません。
+という疑問が湧くかもしれません。
 
-むしろ、以下の能力を養うことが重要だと考えています。
+本プロジェクトは AI によるコード生成を否定しません。むしろ、**「AI が生成したコードを正しく理解し、検証し、修正できる能力」** こそが今最も重要であると考えています。
 
-> **「AIが生成したコードの内容を理解し、正しいか検証し、必要に応じて修正できる力」**
+たとえば、AI にコードを書かせた場合でも、人間側で以下の確認・判断が不可欠です。
 
-仮にAIがコードを作成してくれたとしても、エンジニアや学生自身が次のような点を判断する必要があります。
+* 何をどのように計算しているコードなのか？
+* インプットデータや条件指定は正しいか？
+* 単位系や次元は合っているか？
+* エラーが発生した際、何が原因か？
+* 計算結果は数値的に妥当か？
+* **土木工学的・物理的に意味の通る結果になっているか？**
 
-* どのような計算が行われているか？
-* 入力データは妥当か？
-* 物理量や単位の扱いは正しいか？
-* なぜエラーが発生したのか？
-* 選択された数値計算手法は適切か？
-* 算出された数値は工学的に妥当か？
-* 土木工学の観点から見て意味の通る結果か？
+特に土木工学においては、
 
-工学の現場において、「プログラムがエラーなく動いたこと」と「解析結果が正しく安全であること」は同義ではありません。
+**「プログラムがエラーなく動いた」ことと「解析結果が工学的に正しい」ことはまったく別物です。**
 
-```text
-コードがエラーなく動いた
-        ≠
-工学的解析として正しい
-
-```
-
-したがって、Pythonの知識は「コードをゼロから書くため」だけでなく、「AIが提示したコードを理解し、適切に評価するため」にも欠かせないスキルであり続けます。
-
-プログラミング技術と同時に、計算結果を論理的に検証する力を身につけることを目指しましょう。
+Python の基礎知識を身につけることは、AI を安全かつ高度に使いこなすための最強の基盤となります。
 
 ---
 
-## 推奨する学習ロードマップ
+## 推奨される学習ロードマップ
 
-学習を進める際は、以下の順序を推奨しています。
+以下の順番で学習を進めることを推奨します。
 
 ```text
-環境構築
+Vol.1 環境構築編
     ↓
-Pythonの基礎
+Vol.2 Python 基礎編
     ↓
-データ処理
-  (pandas)
+Vol.3 pandas 入門編
     ↓
-データの可視化
- (Matplotlib)
+Vol.4 Matplotlib 入門編
     ↓
-数値計算の基礎
- (NumPy / SciPy)
+Vol.5 NumPy 入門編
     ↓
-土木データの分析
+Vol.6 SciPy 入門編
     ↓
-GIS・空間データ
+【応用】土木実データ解析
     ↓
-高度な工学応用解析
+【応用】GIS・空間情報データ処理
+    ↓
+【応用】高度な数値シミュレーション・構造・水理計算
 
 ```
 
-このロードマップは各巻の番号と独立して設計されています。
+一回で完璧に理解する必要はありません。Notebook を実際に動かしながら、
 
-新しいコンテンツが追加された場合も、このロードマップの適切なステップに組み込んで学習を進めることができます。
+**「書く → 試す → 結果を見る → 条件を変えてみる」**
 
-一度にすべてをマスターする必要はありません。
-
-> **コードを書く → 実行する → 結果を見る → 少し変えてみる → 再実行する**
-
-というサイクルを繰り返しながら学んでいきましょう。
+という小さな実験を繰り返しながら進めていきましょう。
 
 ---
 
 ## 推奨環境
 
-本プロジェクトでは、主に以下の環境を想定しています。
+本プロジェクトが想定している動作環境は以下の通りです。
 
-| 項目 | 推奨仕様 |
+| 項目 | 推奨環境 |
 | --- | --- |
 | OS | Windows / macOS / Linux |
 | Python | 3.13 |
-| IDE | PyCharm またはその他のPython対応IDE |
-| 環境管理ツール | uv |
-| ノートブック | Jupyter Notebook / JupyterLab |
+| IDE（統合開発環境） | PyCharm |
+| パッケージ・環境管理 | uv |
+| Notebook 環境 | Jupyter Notebook / JupyterLab |
 | ブラウザ実行環境 | Google Colab |
 | バージョン管理 | Git / GitHub |
 
-Pythonやパッケージのバージョンは、リポジトリルートの設定ファイルに従って管理されています。
+※Python およびライブラリのバージョンは、リポジトリ内の `pyproject.toml` および `uv.lock` に従って管理されます。
 
 ---
 
 ## トラブルシューティング
 
-### `uv` コマンドが見つからない（Command Not Found）
+### `uv` コマンドが認識されない場合
 
-`uv` がインストールされているか確認してください。
+以下を実行して動作を確認してください。
 
 ```powershell
 uv --version
 
 ```
 
-認識されない場合は、公式ドキュメントに従って再インストールを行ってください。
+エラーが出る場合は、`uv` のインストールが正しく完了しているか確認してください。
 
-[https://docs.astral.sh/uv/](https://docs.astral.sh/uv/)
+[uv 公式ドキュメント](https://docs.astral.sh/uv/)
 
 ---
 
-### Pythonのバージョンが異なる
+### Python のバージョンが想定と異なる場合
 
-プロジェクトで使用されているPythonバージョンを確認します。
+バージョンを確認します。
 
 ```powershell
 uv run python --version
 
 ```
 
-リポジトリルートにある `.python-version` および設定ファイルによって指定されたバージョンが適用されます。
+本リポジトリでは、ルート直下の `.python-version` ファイルにて Python バージョンを指定しています。
 
 ---
 
-### パッケージが見つからない（ModuleNotFoundError）
+### パッケージが見つからない（ImportError 等）場合
 
-まず、リポジトリのルートディレクトリで以下を実行してください。
+まず、プロジェクトのルートディレクトリで以下を実行して環境を同期してください。
 
 ```powershell
 uv sync
 
 ```
 
-その後、使用しているIDEやJupyter環境が、本プロジェクトで構築されたPython環境を参照しているか確認してください。
+その後、PyCharm や Jupyter がプロジェクト内の仮想環境（`.venv`）を参照しているか確認してください。
 
 ---
 
-### NotebookでPython環境を選択できない
+### Notebook でプロジェクト環境の Python が選択できない場合
 
-プロジェクトの環境がJupyterカーネルとして表示されない場合は、手動で登録することができます。
+PyCharm や Jupyter 内でカーネルの設定を確認してください。
 
-プロジェクトルートで以下を実行します。
+必要に応じて、ルートディレクトリで以下を実行して Jupyter にカーネルを登録します。
 
 ```powershell
 uv run python -m ipykernel install --user --name civil-engineering-python --display-name "Python (civil-engineering-python)"
 
 ```
 
-実行後、JupyterまたはIDEを再起動し、カーネル一覧から以下を選択してください。
-
-```text
-Python (civil-engineering-python)
-
-```
-
 ---
 
-## 開発者の方へ
+## 開発者向け情報
 
-本リポジトリでは、Python環境および依存関係の管理に `uv` を、開発チェックの自動化に `pre-commit` を使用しています。
+本リポジトリでは環境管理に `uv` を、コミット前の自動品質チェックに `pre-commit` を採用しています。
 
-### 1. 開発環境の構築
+### 1. 開発環境のセットアップ
 
-リポジトリをクローンします。
-
-```bash
-git clone https://github.com/skyblueao77/civil-engineering-python.git
-cd civil-engineering-python
-
-```
-
-環境を同期します。
+リポジトリをクローンした後、以下を実行して依存関係を同期し、Git Hooks を有効化します。
 
 ```bash
+# 依存関係の同期
 uv sync
 
-```
-
-Gitフックを有効化します。
-
-```bash
+# Git Hooks の有効化
 uv run pre-commit install
 
 ```
 
 ---
 
-### 2. コード品質の自動化とテスト
+### 2. コード品質の検証とテスト
 
-コミット時に、設定されたpre-commitフックが開発チェックを自動的に行います。
+`git commit` 実行時、ローカル環境で設定済みのチェックが自動実行されます。
 
-ワークフローには以下が含まれます。
+組み込まれているワークフロー：
 
-* **Ruff**: 静的解析・コード品質チェック
-* **Pytest**: 自動テストの実行
-* **nbmake**: Jupyter Notebookの実行テスト
+* **Ruff**: 静的コード解析、コードフォーマット、構文エラー・未定義変数の検出
+* **Pytest (+ nbmake)**: Python スクリプトおよび Jupyter Notebook（`.ipynb`）の実行・動作テスト
 
-すべてのpre-commitチェックを手動で実行する場合:
+#### コミット前の手動テスト実行
+
+コミット前に手動で全体の品質チェックを行う場合は以下を実行します。
 
 ```bash
+# 全ファイルに対して pre-commit チェックを実行
 uv run pre-commit run --all-files
 
-```
-
-テストの実行:
-
-```bash
+# Notebook の実行テストを含めて Pytest を実行
 uv run pytest --nbmake
 
-```
-
-Ruffによるチェックの実行:
-
-```bash
-uv run ruff check .
+# Ruff による自動修正付きコードチェック
+uv run ruff check --fix
 
 ```
-
-Ruffで修正可能な問題を自動修正する場合:
-
-```bash
-uv run ruff check --fix .
-
-```
-
-コントリビュートを検討されている方は、事前に `./CONTRIBUTING.md` もご確認ください。
 
 ---
 
 ## 免責事項
 
-本リポジトリは、Pythonおよびその土木工学への応用を学ぶための**教育用リソース**です。
+本リポジトリは、Python および土木工学分野におけるプログラミング手法を学ぶための**教育・学習用コンテンツ**です。
 
-提供されているコードや解説の正確性、完全性、信頼性を永久に保証するものではありません。
+掲載されているコードおよび解説の正確性、完全性、信頼性について保証するものではありません。
 
-本リポジトリのコードや計算例を、十分な検証なしに実務上の重要な工学的判断に直接使用しないでください。
-
-特に、実際の業務、設計、施工、インフラ管理、防災・安全に関わる計算に利用する場合は、必ず有資格者・専門家に相談し、適用される法令、示成書、基準、公式文書、および各種ガイドラインに基づいて結果を検証してください。
+特に、実際の土木構造物の設計、施工、防災、安全評価などの実務判断にコードを利用する場合は、必ず有資格者・専門家の指示のもと、公式の基準書・計算書・関連法規等に照らし合わせて検証を行ってください。本リポジトリのプログラムを利用したことによって生じた一切の損害について、著者は責任を負いかねます。
 
 ---
 
 ## ライセンス
 
-本リポジトリは **MIT License** のもとで公開されています。
-
-詳細は `./LICENSE` ファイルを参照してください。
+本リポジトリは **[MIT License](https://www.google.com/search?q=/LICENSE)** のもとで公開されています。商用・非商用を問わず自由にご利用いただけます。
 
 ---
 
@@ -736,65 +782,38 @@ uv run ruff check --fix .
 
 **skyblueao77**
 
-Python、データ分析、AIなどの技術を学んでいる土木工学専攻の学生。
+土木工学を専攻する学生。Python、データ分析、AI 技術などを勉強中。
 
-「土木のためのPython」シリーズはQiitaでも連載・公開しています。
+Qiita にて「土木のための Python 入門」シリーズを連載中。
 
-* [Qiita](https://qiita.com/skyblueao77)
-* [GitHub](https://github.com/skyblueao77/civil-engineering-python)
+* [Qiita プロフィール](https://qiita.com/skyblueao77)
+* [GitHub プロフィール](https://www.google.com/search?q=https://github.com/skyblueao77)
 
 ---
 
 ## 関連リンク
 
-### プロジェクト関連
-
-* [Qiita - skyblueao77](https://qiita.com/skyblueao77)
+* [Qiita - 土木のための Python 入門](https://qiita.com/skyblueao77)
 * [GitHub - civil-engineering-python](https://github.com/skyblueao77/civil-engineering-python)
-
-### Python環境・開発ツール
-
-* [Python 公式](https://www.python.org/)
-* [uv ドキュメント](https://docs.astral.sh/uv/)
-* [PyCharm 公式](https://www.jetbrains.com/pycharm/)
-* [Jupyter 公式](https://jupyter.org/)
+* [uv 公式ドキュメント](https://docs.astral.sh/uv/)
+* [PyCharm 公式サイト](https://www.jetbrains.com/pycharm/)
 * [Google Colab](https://colab.research.google.com/)
 
-### 主要Pythonライブラリ
-
-* [NumPy](https://numpy.org/)
-* [pandas](https://pandas.pydata.org/)
-* [Matplotlib](https://matplotlib.org/)
-* [SciPy](https://scipy.org/)
-
 ---
 
-## 今後の予定
+## 今後の更新予定
 
-今後は以下のようなテーマを扱っていく予定です。
+今後、以下のテーマについて順次コンテンツを追加・更新していく予定です。
 
-* 土木実務に役立つデータ分析手法
-* 実際のデータセットを用いた実践的解析
-* 公共データ（国土交通省などのオープンデータ）の活用
-* GIS・地理空間データ処理（GeoPandasなど）
-* 統計解析の基礎と応用
-* 工学課題に対する数値計算手法
-* 生成AIを活用した効率的なPython開発手法
-* AI生成コードのデバッグ・検証テクニック
-* より高度な数値解析プログラミング
+* 実用的な土木データの解析・可視化実践
+* NumPy / SciPy を用いた数値解析応用（水理計算・構造計算等）
+* 国土交通省などのオープンデータ（i-Construction、プレート、観測データ等）の活用
+* GeoPandas や GIS データを活用した空間情報処理
+* AI（生成AI）を活用した Python 開発手法とコード検証技術
+* 土木工学における高度な数値シミュレーション
 
-基礎的なPythonの習得から始まり、最終的には実際の土木データや解析手法を自在に扱えるようになる実践的な学習リソースを目指していきます。
+最終的には、**「Python の文法基礎から、実際の土木データ・数値計算を自在に扱えるレベルまで到達できる実践的な学習リポジトリ」** を目指して開発を続けていきます。
 
----
+```
 
-## コントリビューション（貢献）について
-
-ご意見、改善のご提案、修正の指摘などは大歓迎です！
-
-誤字や内容の誤りを見つけた場合や、教材の改善案がある場合は、Issueを立てていただくか、`./CONTRIBUTING.md` のガイドラインに沿ってPull Requestをお送りください。
-
----
-
-**Python for Civil Engineering（土木のためのPython 入門）**
-
-Pythonの基礎から、実際の土木データの理解・分析まで。
+```
