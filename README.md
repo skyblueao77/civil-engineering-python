@@ -92,14 +92,15 @@ Future materials will expand into civil engineering data analysis, GIS and spati
 
 The following materials are currently available.
 
-| Volume | Topic | GitHub Materials | Qiita Article |
-| ------ | ----- | ---------------- | ------------- |
-| Vol.1 | Environment Setup | Repository root | https://qiita.com/skyblueao77/items/c4a0e7ddc9913c55994f |
-| Vol.2 | Python Basics | ./qiita_02_basic/ | https://qiita.com/skyblueao77/items/65abd5ad5befa474ee5f |
-| Vol.3 | pandas Introduction | ./qiita_03_pandas/ | https://qiita.com/skyblueao77/items/c8c4902706f97415d1ec |
-| Vol.4 | Matplotlib Introduction | ./qiita_04_matplotlib/ | https://qiita.com/skyblueao77/items/45da8225a78e99d28cc5 |
-| Vol.5 | NumPy Introduction | ./qiita_05_numpy/ | https://qiita.com/skyblueao77/items/dfc9a12c147230814424 |
-| Vol.6 | SciPy Introduction | ./qiita_06_scipy/ | https://qiita.com/skyblueao77/items/a1306b9cd6c06671191b |
+| Volume | Topic                   | GitHub Materials       | Qiita Article |
+|--------|-------------------------|------------------------| ------------- |
+| Vol.1  | Environment Setup       | Repository root        | https://qiita.com/skyblueao77/items/c4a0e7ddc9913c55994f |
+| Vol.2  | Python Basics           | ./qiita_02_basic/      | https://qiita.com/skyblueao77/items/65abd5ad5befa474ee5f |
+| Vol.3  | pandas Introduction     | ./qiita_03_pandas/     | https://qiita.com/skyblueao77/items/c8c4902706f97415d1ec |
+| Vol.4  | Matplotlib Introduction | ./qiita_04_matplotlib/ | https://qiita.com/skyblueao77/items/45da8225a78e99d28cc5 |
+| Vol.5  | NumPy Introduction      | ./qiita_05_numpy/      | https://qiita.com/skyblueao77/items/dfc9a12c147230814424 |
+| Vol.6  | SciPy Introduction      | ./qiita_06_scipy/      | https://qiita.com/skyblueao77/items/a1306b9cd6c06671191b |
+| Vol.7  | GeoPandas Introduction  | ./qiita_07_geopandas/  | https://qiita.com/skyblueao77/items/3b64dff2020415332445 |
 
 Each volume generally includes:
 
@@ -107,10 +108,6 @@ Each volume generally includes:
 - A Jupyter Notebook for interactive learning
 - A Python script containing example code
 - A README with information specific to the volume
-
-> **For future volumes:**  
-> When a new article is published, simply add one row to the table above and add the corresponding `qiita_XX_topic/` directory.  
-> The other sections of this README generally do not need to be updated.
 
 ---
 
