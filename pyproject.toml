@@ -15,8 +15,8 @@ dependencies = [
     "numpy>=2.5.2",
     "pandas>=3.0.5",
     "pandas-stubs>=3.0.5.260730",
-    "scipy>=1.18.0",
-    "scipy-stubs>=1.18.0.1",
+    "scipy==1.18.1",
+    "scipy-stubs==1.18.1.0",
 ]
 
 [dependency-groups]
@@ -24,7 +24,7 @@ dev = [
     "nbmake>=1.5.5",
     "pre-commit>=4.6.2",
     "pytest>=9.1.1",
-    "ruff==0.16.4",
+    "ruff==0.16.5",
 ]
 
 [tool.ruff]
