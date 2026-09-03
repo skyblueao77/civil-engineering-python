@@ -78,55 +78,46 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 L = 10.0
-q = 10_000.0
+q = 10.0
 
-fig, ax = plt.subplots(figsize=(10, 3))
+fig, ax = plt.subplots(figsize=(8, 2.5))
 
-# 梁
-ax.plot([0, L], [0, 0], color="black", linewidth=4)
+# 1. 梁
+ax.plot([0, L], [0, 0], color="black", linewidth=4, zorder=2)
 
-# 支点
-ax.scatter(
-    [0, L],
-    [0, 0],
-    marker="^",
-    s=250,
-    color="tab:blue",
-    zorder=3,
-)
+# 2. 支点 (マーカーの重心を下げて、頂点を梁の下面 y=0 に合わせる)
+ax.scatter([0, L], [-0.15, -0.15], marker="^", s=250, color="gray", edgecolors="black", zorder=3)
+ax.plot([-0.3, 0.3], [-0.3, -0.3], color="black", lw=1.5)      # Aの地面
+ax.plot([L - 0.3, L + 0.3], [-0.3, -0.3], color="black", lw=1.5)  # Bの地面
 
-# 等分布荷重
-load_x = np.linspace(0.3, L - 0.3, 15)
+# 3. 等分布荷重 (上部バー + 矢印)
+load_h = 0.8
+ax.plot([0, L], [load_h, load_h], color="tab:red", lw=1.5)
+for xi in np.linspace(0, L, 11):
+    ax.annotate("", xy=(xi, 0.05), xytext=(xi, load_h),
+                arrowprops=dict(arrowstyle="-|>", color="tab:red", lw=1.2, mutation_scale=10))
 
-for xi in load_x:
-    ax.annotate(
-        "",
-        xy=(xi, 0.1),
-        xytext=(xi, 1.0),
-        arrowprops=dict(
-            arrowstyle="->",
-            color="tab:red",
-            lw=1.5,
-        ),
-    )
+# 4. ラベル・寸法線
+ax.text(L / 2, load_h + 0.15, rf"$q = {q:.1f}\ \mathrm{{kN/m}}$", ha="center", va="bottom", color="tab:red")
+ax.text(0, -0.45, "A", ha="center", va="top", fontweight="bold")
+ax.text(L, -0.45, "B", ha="center", va="top", fontweight="bold")
 
-# ラベル
-ax.text(0, -0.35, "A", ha="center")
-ax.text(L, -0.35, "B", ha="center")
-ax.text(
-    L / 2,
-    1.2,
-    f"q = {q / 1000:.1f} kN/m",
-    ha="center",
-)
+# 寸法線
+dim_y = -0.8
+ax.annotate("", xy=(0, dim_y), xytext=(L, dim_y), arrowprops=dict(arrowstyle="<->", color="black"))
+ax.plot([0, 0], [-0.35, dim_y - 0.1], color="gray", ls=":", lw=0.8)
+ax.plot([L, L], [-0.35, dim_y - 0.1], color="gray", ls=":", lw=0.8)
+ax.text(L / 2, dim_y, rf"$L = {L:.1f}\ \mathrm{{m}}$", ha="center", va="center",
+        bbox=dict(fc="white", ec="none", pad=1.5))
 
-ax.set_xlim(-0.8, L + 0.8)
-ax.set_ylim(-0.7, 1.5)
+# 描画範囲
+ax.set_xlim(-1.0, L + 1.0)
+ax.set_ylim(-1.1, load_h + 0.5)
 ax.set_aspect("equal")
 ax.axis("off")
 
+plt.tight_layout()
 plt.show()
-
 #%% [markdown]
 # 実行すると、梁・支点・等分布荷重を次のように描画できます。
 #
@@ -267,7 +258,6 @@ q = 10_000.0
 x = np.linspace(0, L, 501)
 
 V = q * L / 2 - q * x
-
 #%% [markdown]
 # ここで `np.linspace()` を使用して、梁の左端から右端までの位置を501点生成しています。501点とすることで、今回の条件では梁中央 x=L/2 も計算点に含まれます。
 #
