@@ -1,5 +1,27 @@
 # ruff: noqa: E501, E402, E741
 # 文字数過多によるコミットエラー回避のために設定
+#
+# このファイルは、2次元三角形トラスを有限要素法で解析する教材です。
+#
+# 実行方法（プロジェクトルートで実行）:
+#   uv sync
+#   uv run python qiita_09_truss/qiita_doboku_9.py
+#
+# `.venv`を更新せず、現在インストール済みのパッケージだけで確認する場合:
+#   uv run --no-sync python qiita_09_truss/qiita_doboku_9.py
+#
+# このスクリプトは `#%%` をセルの区切りとしても使えますが、上記コマンドで
+# ファイル全体を上から順番に実行できます。計算は長さ[m]・力[N]・応力[Pa]
+# を基本単位とし、表示時に mm や kN へ換算しています。
+#
+# 解析の流れ:
+#   1. 節点・部材・荷重・支持条件を定義する
+#   2. 要素剛性行列を作り、全体剛性行列 K に組み立てる
+#   3. 支持条件を適用して K u = f を解く
+#   4. 変位から支点反力と部材軸力を求め、理論値と比較する
+#
+# ※ 学習用の簡略モデルです。実構造物の設計や安全性の判断には使用しないでください。
+#
 #%% [markdown]
 # :::note info
 # **この記事の対象者**
@@ -383,8 +405,11 @@ plt.show()
 # となります。
 
 #%%
+# 2次元トラスでは、各節点にx方向・y方向の2自由度があります。
+# したがって、節点数 × 2 が全体の自由度数です。
 ndof = 2 * len(nodes)
 
+# 変位ベクトルを、全自由度がまだ変位していない状態で初期化します。
 u = np.zeros(ndof)
 
 print(u)
@@ -411,11 +436,13 @@ print(u)
 # となります。
 
 #%%
+# 荷重はNで入力します（10 kN = 10,000 N）。
 P = 10_000.0
 
+# 荷重ベクトルも自由度の並び [Aのx, Aのy, Bのx, ...] に合わせます。
 f = np.zeros(ndof)
 
-# 節点Cのy方向に下向き荷重
+# 節点Cのy方向自由度は5番目です。下向きなので符号はマイナスです。
 f[5] = -P
 
 print(f)
@@ -440,6 +467,7 @@ print(f)
 
 #%%
 def member_length(nodes, i, j):
+    """節点iと節点jを結ぶ部材の長さ[m]を返します。"""
     dx = nodes[j, 0] - nodes[i, 0]
     dy = nodes[j, 1] - nodes[i, 1]
 
@@ -483,6 +511,7 @@ for i, j in members:
 
 #%%
 def direction_cosines(nodes, i, j):
+    """部材の方向を表す cos(theta), sin(theta) を返します。"""
     dx = nodes[j, 0] - nodes[i, 0]
     dy = nodes[j, 1] - nodes[i, 1]
 
@@ -534,6 +563,10 @@ print(f"s = {s:.6f}")
 
 #%%
 def truss_element_stiffness(E, A, nodes, i, j):
+    """2次元トラス部材の4×4要素剛性行列を作成します。
+
+    Eはヤング係数[Pa]、Aは断面積[m^2]です。
+    """
     xi, yi = nodes[i]
     xj, yj = nodes[j]
 
@@ -574,12 +607,12 @@ k_ac = truss_element_stiffness(
 print(k_ac)
 
 #%% [markdown]
-# # 12. 全体剛性行列を作る
-# # 13. 全体剛性行列を組み立てる
-# # 14. 全体剛性行列を確認する
+# # 12〜14. 全体剛性行列を組み立てる
+# 各部材の要素剛性行列を、対応する全体自由度へ足し合わせます。
 
 #%%
 def element_dofs(i, j):
+    """部材(i, j)に対応する全体自由度番号を返します。"""
     return [
         2 * i,
         2 * i + 1,
@@ -588,6 +621,7 @@ def element_dofs(i, j):
     ]
 
 
+# 全体剛性行列Kは、全自由度同士の関係を表す行列です。
 K = np.zeros((ndof, ndof))
 
 for i, j in members:
@@ -599,8 +633,8 @@ for i, j in members:
         j,
     )
 
+    # 要素行列の4自由度を、全体行列の該当位置へ加算します。
     dofs = element_dofs(i, j)
-
     K[np.ix_(dofs, dofs)] += k
 
 print(K)
@@ -616,6 +650,8 @@ print(K)
 # ```
 
 #%%
+# Aはx・y方向を固定し、Bはy方向だけを固定します。
+# 固定自由度を除いた部分行列 K_ff だけを解くことで、既知の変位0を反映します。
 fixed_dofs = [0, 1, 3]
 
 all_dofs = np.arange(ndof)
@@ -632,6 +668,7 @@ print("自由自由度:", free_dofs)
 # # 16. `Ku=f` を解く
 
 #%%
+# 未知変位に対応する部分行列と荷重だけを取り出して解きます。
 K_ff = K[np.ix_(free_dofs, free_dofs)]
 f_f = f[free_dofs]
 
@@ -693,6 +730,10 @@ for dof in fixed_dofs:
 
 #%%
 def member_axial_force(E, A, nodes, i, j, u):
+    """部材の伸びから軸力[N]を計算します。
+
+    正の値は引張、負の値は圧縮を表します。
+    """
     xi, yi = nodes[i]
     xj, yj = nodes[j]
 
@@ -740,6 +781,8 @@ for i, j in members:
 # # 22. 変形を可視化する
 
 #%%
+# 実際の変位は非常に小さいため、図では1000倍に拡大して表示します。
+# scaleは表示用であり、計算した変位uそのものは変更しません。
 scale = 1000
 
 deformed_nodes = nodes.copy()
@@ -1057,6 +1100,11 @@ for E_test in youngs_moduli:
 # # 29. 荷重を変えてみる
 
 #%%
+# 荷重以外の条件（E、断面積、支持条件）は基準モデルに戻します。
+# 直前の「ヤング係数を変えてみる」で K_ff が上書きされているため、
+# ここでは基準値 E=200 GPa の全体剛性行列 K から作り直します。
+K_ff = K[np.ix_(free_dofs, free_dofs)]
+
 loads = np.array([
     5_000,
     10_000,
@@ -1092,8 +1140,10 @@ def solve_truss(
     loads,
     fixed_dofs,
 ):
-    """
-    2次元トラスの線形静解析を行う。
+    """2次元トラスの線形静解析を行います。
+
+    部材剛性を全体剛性行列へ組み立て、拘束されていない自由度だけを
+    取り出して連立方程式を解きます。
 
     Parameters
     ----------
