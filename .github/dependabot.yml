@@ -1,0 +1,8 @@
+version: 2
+updates:
+  # Python (uv) の依存関係自動更新設定
+  - package-ecosystem: "uv"
+    directory: "/"
+    schedule:
+      interval: "weekly" # 実行頻度（daily, weekly, monthly から選択）
+    open-pull-requests-limit: 10
