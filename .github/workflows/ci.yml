@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   verify:
-    name: Lockfile, Security Lint & Notebook Tests
+    name: Lockfile, Lint, Unit & Notebook Tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository (no third-party actions)
@@ -40,10 +40,10 @@ jobs:
       - name: Install dependencies strictly from uv.lock
         run: uv sync --locked --all-groups
 
-      - name: Run Ruff security rules (flake8-bandit)
-        run: uv run ruff check --select S .
+      - name: Run Ruff lint and security checks (E, F, I, S)
+        run: uv run ruff check .
 
-      - name: Run pytest and execute all notebooks
+      - name: Run pytest unit tests and execute all notebooks
         run: uv run pytest --nbmake
 
   dependency-audit:

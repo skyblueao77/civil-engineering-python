@@ -353,7 +353,7 @@ This repository treats security, dependency auditing, reproducibility, and code 
   - **CodeQL**: Automated static analysis code scanning
 - **Automated CI & Security Verification (GitHub Actions)**:
   - Workflows ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) run with least-privilege permissions (`contents: read`) and without third-party GitHub Actions.
-  - Every push and pull request runs `uv lock --check`, Ruff security rules (`S`: flake8-bandit), and `pytest --nbmake` across all Jupyter Notebooks.
+  - Every push and pull request runs `uv lock --check`, full Ruff checks (`E`, `F`, `I`, `S`: style, pyflakes, import sorting, and flake8-bandit security), and `pytest --nbmake` (unit tests + all Jupyter Notebooks).
   - **`pip-audit --strict`** runs on changes and weekly on schedule to detect known vulnerabilities (CVEs) in dependencies.
 
 Useful links:
@@ -709,7 +709,7 @@ Contributors should also read:
 
 Pushing a semantic version tag (for example, `v1.4.0`) triggers [`.github/workflows/release.yml`](.github/workflows/release.yml) to automatically verify the codebase and publish a GitHub Release:
 
-1. Runs `uv lock --check`, Ruff security rules (`--select S`), `pip-audit --strict`, and `pytest --nbmake` across all notebooks.
+1. Runs `uv lock --check`, full Ruff lint and security rules (`E`, `F`, `I`, `S`), `pip-audit --strict`, and `pytest --nbmake` (unit tests and all notebooks).
 2. Once all checks pass, generates categorized release notes using [`.github/release.yml`](.github/release.yml), attaches `SHA256SUMS.txt`, and publishes the GitHub Release.
 
 ```bash

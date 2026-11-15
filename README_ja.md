@@ -356,7 +356,7 @@ uv sync
   * **CodeQL**: 静的解析によるコードスキャンを運用
 * **CI による自動検証（GitHub Actions）**:
   * ワークフロー（[`.github/workflows/ci.yml`](.github/workflows/ci.yml)）は最小権限（`contents: read`）かつ外部サードパーティ製 Action に依存しない構成で運用しています。
-  * すべての push / Pull Request で `uv lock --check`、Ruff のセキュリティルール（`S`: flake8-bandit）、および `pytest --nbmake` による全 Notebook の実行テストを実施しています。
+  * すべての push / Pull Request で `uv lock --check`、Ruff 全体チェック（`E`, `F`, `I`, `S`: スタイル・構文・インポート順・flake8-bandit セキュリティ）、および `pytest --nbmake` によるユニットテストと全 Notebook の実行テストを実施しています。
   * 定期実行（毎週）および変更時に **`pip-audit --strict`** を実行し、依存パッケージに既知の脆弱性（CVE）がないか検査しています。
 
 関連リンク:
@@ -723,7 +723,7 @@ uv run ruff check --fix .
 
 本リポジトリでは、セマンティックバージョニング形式のタグ（例: `v1.4.0`）をプッシュすると、[`.github/workflows/release.yml`](.github/workflows/release.yml) により自動検証と GitHub Release の作成が行われます。
 
-1. `uv lock --check`、Ruff セキュリティチェック（`--select S`）、`pip-audit --strict`、`pytest --nbmake` を自動実行します。
+1. `uv lock --check`、Ruff 全体チェック（`E`, `F`, `I`, `S`）、`pip-audit --strict`、`pytest --nbmake`（ユニットテストおよび全 Notebook）を自動実行します。
 2. 全チェック通過後、[`.github/release.yml`](.github/release.yml) のカテゴリ定義に沿ってリリースノートを自動生成し、`SHA256SUMS.txt` を添付して GitHub Release を公開します。
 
 ```bash
