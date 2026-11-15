@@ -44,15 +44,15 @@
 #
 # これまでの記事一覧はこちらから
 #
-# [連載一覧]
+# [【連載一覧】土木のためのPython入門](https://qiita.com/skyblueao77/items/ea31e9890f6368b25e19)
 #
 # この連載のGitHubリポジトリはこちら
 #
-# [GitHubリポジトリ]
+# [https://github.com/skyblueao77/civil-engineering-python](https://github.com/skyblueao77/civil-engineering-python)
 #
 # 今回の記事の内容を気軽に実行したい方は、Google ColabからNotebookを実行できます。
 #
-# [Google Colab]
+# [Open In Colab](https://colab.research.google.com/github/skyblueao77/civil-engineering-python/blob/main/qiita_09_truss/qiita_doboku_9.ipynb)
 #
 # # はじめに
 #
@@ -1382,4 +1382,4 @@ print(df)
 # * Python Documentation
 # * NumPy Documentation
 # * Matplotlib Documentation
-# * 本連載のGitHubリポジトリ
+# * 本連載のGitHubリポジトリ: https://github.com/skyblueao77/civil-engineering-python

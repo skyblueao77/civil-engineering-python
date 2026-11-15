@@ -6,6 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![Python Version](https://img.shields.io/badge/python-3.13-blue.svg)](https://www.python.org/)
 [![Managed by uv](https://img.shields.io/badge/python--package--manager-uv-de5b88.svg)](https://docs.astral.sh/uv/)
+[![CI & Security Checks](https://github.com/skyblueao77/civil-engineering-python/actions/workflows/ci.yml/badge.svg)](https://github.com/skyblueao77/civil-engineering-python/actions/workflows/ci.yml)
 [![Security Policy](https://img.shields.io/badge/Security-Policy-green.svg)](https://github.com/skyblueao77/civil-engineering-python/security/policy)
 [![Dependabot](https://img.shields.io/badge/Dependabot-enabled-green.svg)](https://github.com/skyblueao77/civil-engineering-python/security/dependabot)
 [![Secret Scanning](https://img.shields.io/badge/Secret%20Scanning-enabled-green.svg)](https://github.com/skyblueao77/civil-engineering-python/security/secret-scanning)
@@ -23,29 +24,29 @@ The repository is designed to be used together with the accompanying Qiita artic
 
 ## Table of Contents
 
-- target-audience
-- what-you-will-learn
-- articles-and-learning-materials
-- repository-structure
-- environment-setup
-  - method-1-use-google-colab
-  - method-2-use-uv--pycharm
-- dependencies
-- reproducibility-and-dependency-management
-- security-and-code-quality
-- running-python
-- about-jupyter-notebooks
-- python-in-civil-engineering
-- learning-python-in-the-age-of-ai
-- recommended-learning-path
-- recommended-environment
-- troubleshooting
-- for-developers
-- disclaimer
-- license
-- author
-- related-links
-- future-plans
+- [Target Audience](#target-audience)
+- [What You Will Learn](#what-you-will-learn)
+- [Articles and Learning Materials](#articles-and-learning-materials)
+- [Repository Structure](#repository-structure)
+- [Environment Setup](#environment-setup)
+  - [Method 1: Use Google Colab](#method-1-use-google-colab)
+  - [Method 2: Use uv + PyCharm](#method-2-use-uv--pycharm)
+- [Dependencies](#dependencies)
+- [Reproducibility and Dependency Management](#reproducibility-and-dependency-management)
+- [Security and Code Quality](#security-and-code-quality)
+- [Running Python](#running-python)
+- [About Jupyter Notebooks](#about-jupyter-notebooks)
+- [Python in Civil Engineering](#python-in-civil-engineering)
+- [Learning Python in the Age of AI](#learning-python-in-the-age-of-ai)
+- [Recommended Learning Path](#recommended-learning-path)
+- [Recommended Environment](#recommended-environment)
+- [Troubleshooting](#troubleshooting)
+- [For Developers](#for-developers)
+- [Disclaimer](#disclaimer)
+- [License](#license)
+- [Author](#author)
+- [Related Links](#related-links)
+- [Future Plans](#future-plans)
 
 ---
 
@@ -79,28 +80,33 @@ The main topics include:
 - Data visualization with Matplotlib
 - Numerical computing with NumPy
 - Scientific computing with SciPy
+- Working with GIS and spatial data using GeoPandas
+- Applying Python to structural and civil engineering problems (such as simply supported beam analysis)
 - Working with Jupyter Notebooks
 - Managing Python environments and dependencies with uv
-- Applying Python to civil engineering problems
 - Understanding and verifying AI-generated Python code
 
-Future materials will expand into civil engineering data analysis, GIS and spatial data, real-world public datasets, and more advanced numerical computation.
+Future materials will expand into real-world public datasets, more advanced structural analysis, and numerical computation.
 
 ---
 
 ## Articles and Learning Materials
 
+Series overview article: [【連載一覧】土木のためのPython入門](https://qiita.com/skyblueao77/items/ea31e9890f6368b25e19)
+
 The following materials are currently available.
 
-| Volume | Topic                   | GitHub Materials       | Qiita Article |
-|--------|-------------------------|------------------------| ------------- |
-| Vol.1  | Environment Setup       | Repository root        | https://qiita.com/skyblueao77/items/c4a0e7ddc9913c55994f |
-| Vol.2  | Python Basics           | ./qiita_02_basic/      | https://qiita.com/skyblueao77/items/65abd5ad5befa474ee5f |
-| Vol.3  | pandas Introduction     | ./qiita_03_pandas/     | https://qiita.com/skyblueao77/items/c8c4902706f97415d1ec |
-| Vol.4  | Matplotlib Introduction | ./qiita_04_matplotlib/ | https://qiita.com/skyblueao77/items/45da8225a78e99d28cc5 |
-| Vol.5  | NumPy Introduction      | ./qiita_05_numpy/      | https://qiita.com/skyblueao77/items/dfc9a12c147230814424 |
-| Vol.6  | SciPy Introduction      | ./qiita_06_scipy/      | https://qiita.com/skyblueao77/items/a1306b9cd6c06671191b |
-| Vol.7  | GeoPandas Introduction  | ./qiita_07_geopandas/  | https://qiita.com/skyblueao77/items/3b64dff2020415332445 |
+| Volume | Topic | GitHub Materials | Qiita Article |
+| --- | --- | --- | --- |
+| Vol.1 | Environment Setup (Google Colab & uv) | Repository root | [土木のためのPython入門① 環境構築編（Google Colab・uv）](https://qiita.com/skyblueao77/items/c4a0e7ddc9913c55994f) |
+| Vol.2 | Python Basics | `./qiita_02_basic/` | [土木のためのPython入門② 基本文法編](https://qiita.com/skyblueao77/items/65abd5ad5befa474ee5f) |
+| Vol.3 | pandas Introduction | `./qiita_03_pandas/` | [土木のためのPython入門③ pandas入門編](https://qiita.com/skyblueao77/items/c8c4902706f97415d1ec) |
+| Vol.4 | Matplotlib Introduction | `./qiita_04_matplotlib/` | [土木のためのPython入門④ matplotlib入門編](https://qiita.com/skyblueao77/items/45da8225a78e99d28cc5) |
+| Vol.5 | NumPy Introduction | `./qiita_05_numpy/` | [土木のためのPython入門⑤ NumPy入門｜配列・行列・数値計算を基礎から解説](https://qiita.com/skyblueao77/items/dfc9a12c147230814424) |
+| Vol.6 | Scientific Computing with SciPy | `./qiita_06_scipy/` | [土木のためのPython入門⑥ SciPyで科学技術計算｜補間・数値積分・数値微分・最適化](https://qiita.com/skyblueao77/items/a1306b9cd6c06671191b) |
+| Vol.7 | GeoPandas Introduction | `./qiita_07_geopandas/` | [土木のためのPython入門⑦ GeoPandas入門編](https://qiita.com/skyblueao77/items/3b64dff2020415332445) |
+| Vol.8 | Structural Analysis (Simply Supported Beam) | `./qiita_08_beam/` | [土木のためのPython入門⑧ 単純梁をPythonで解析してみよう](https://qiita.com/skyblueao77/items/cd31c475fdbf9d5a80f6) |
+| Vol.9 | Structural Analysis (2D Truss) | `./qiita_09_truss/` | Coming soon (article not yet created) |
 
 Each volume generally includes:
 
@@ -168,6 +174,7 @@ The main environment consists of:
 - pandas
 - Matplotlib
 - SciPy
+- GeoPandas
 
 There are two main ways to use the learning materials.
 
@@ -297,6 +304,7 @@ The main dependencies currently include:
 | pandas | Tabular data processing |
 | Matplotlib | Data visualization |
 | SciPy | Scientific computing |
+| GeoPandas | GIS and spatial data processing |
 | Jupyter | Notebook environment |
 | ipykernel | Python kernel |
 
@@ -332,34 +340,36 @@ However, reproducibility does not guarantee that all dependencies are free of vu
 
 ## Security and Code Quality
 
-Security, dependency management, reproducibility, and code quality are treated as part of the repository's development process.
+This repository treats security, dependency auditing, reproducibility, and code quality as continuous parts of the development workflow so that students and learners can use the materials with confidence.
 
-### GitHub Security Features
+### Security Measures in Place
 
-The repository uses GitHub security features to help maintain a well-managed development environment.
-
-These include:
-
-- **Security Policy**: Instructions for reporting potential security vulnerabilities
-- **Security Advisories**: GitHub's mechanism for handling repository security advisories
-- **Private Vulnerability Reporting**: Private reporting of potential vulnerabilities when available
-- **Dependabot Alerts**: Monitoring dependencies for known vulnerabilities
-- **Secret Scanning**: Detection of certain accidentally committed secrets
+- **No Credentials or Unexpected Data Transmission**: The educational scripts and notebooks focus on local (or Google Colab) numerical computation and visualization, and do not collect credentials or send user data to external servers.
+- **Lockfile Reproducibility & Integrity (`uv.lock`)**: Package versions and hashes are pinned in `uv.lock`. Users can enforce strict verification with `uv sync --locked`.
+- **GitHub Security Features**:
+  - **Security Policy & Private Vulnerability Reporting**: Private channel for reporting potential vulnerabilities
+  - **Dependabot Alerts & Updates**: Weekly automated monitoring and updates for both `uv` dependencies and GitHub Actions
+  - **Secret Scanning & Push Protection**: Detects and blocks accidental commits of API keys, private keys, or `.env` files (also excluded via `.gitignore`)
+  - **CodeQL**: Automated static analysis code scanning
+- **Automated CI & Security Verification (GitHub Actions)**:
+  - Workflows ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) run with least-privilege permissions (`contents: read`) and commit-SHA-pinned actions.
+  - Every push and pull request runs `uv lock --check`, Ruff security rules (`S`: flake8-bandit), and `pytest --nbmake` across all Jupyter Notebooks.
+  - **`pip-audit --strict`** runs on changes and weekly on schedule to detect known vulnerabilities (CVEs) in dependencies.
 
 Useful links:
 
-- https://github.com/skyblueao77/civil-engineering-python/security/policy
-- https://github.com/skyblueao77/civil-engineering-python/security/advisories
-- https://github.com/skyblueao77/civil-engineering-python/security/dependabot
-- https://github.com/skyblueao77/civil-engineering-python/security/secret-scanning
+- [Security Policy](https://github.com/skyblueao77/civil-engineering-python/security/policy)
+- [Security Advisories](https://github.com/skyblueao77/civil-engineering-python/security/advisories)
+- [Dependabot Alerts](https://github.com/skyblueao77/civil-engineering-python/security/dependabot)
+- [Secret Scanning](https://github.com/skyblueao77/civil-engineering-python/security/secret-scanning)
 
-### Code Scanning
+### Safe Usage Tips for Learners
 
-Automated code scanning can be added using CodeQL or another supported static analysis workflow.
+1. **Obtain Materials from the Official Repository**: Clone from `https://github.com/skyblueao77/civil-engineering-python` or launch notebooks via the official **Open in Colab** badges.
+2. **Use `uv sync --locked`**: Running `uv sync --locked` ensures your local environment matches `uv.lock` exactly without unexpected version drift.
+3. **Protect Your Own Data**: When testing with your own datasets, location data, or API keys, never commit `.env` or secret files (`.gitignore` already excludes common secret patterns).
 
-If code scanning is configured, it can complement the existing dependency monitoring and development checks.
-
-## Pre-commit Checks
+### Pre-commit Checks
 
 The repository uses `pre-commit` to automate development checks.
 
@@ -369,11 +379,12 @@ The configuration is stored in:
 .pre-commit-config.yaml
 ```
 
-The development workflow may include tools such as:
+The development workflow includes tools such as:
 
-- **Ruff**: Static analysis and code quality checks
-- **Pytest**: Automated testing
-- **nbmake**: Execution-based testing of Jupyter Notebooks
+- **Ruff**: Static analysis, code quality, and Bandit security checks (`S`)
+- **uv lock --check**: Verifies consistency between `pyproject.toml` and `uv.lock`
+- **Pytest / nbmake**: Automated testing and execution-based testing of all Jupyter Notebooks
+- **pip-audit**: Dependency vulnerability scanning (`uv run pip-audit --strict`)
 
 Developers can run all configured pre-commit checks manually:
 
@@ -381,7 +392,7 @@ Developers can run all configured pre-commit checks manually:
 uv run pre-commit run --all-files
 ```
 
-These checks help identify formatting issues, syntax problems, unused code, and problems that prevent Python scripts or Jupyter Notebooks from executing correctly.
+These checks help identify formatting issues, syntax problems, security concerns, lockfile drift, and issues that prevent Python scripts or Jupyter Notebooks from executing correctly.
 
 ### Security Scope
 
@@ -389,7 +400,7 @@ This is an educational repository, not a security-critical production system.
 
 The security features and development checks described above are intended to improve repository hygiene, dependency monitoring, reproducibility, and code quality.
 
-They should not be interpreted as a guarantee that the repository or every dependency is completely free of vulnerabilities.
+They should not be interpreted as a guarantee that the repository or every dependency is permanently free of vulnerabilities.
 
 ---
 
@@ -409,7 +420,7 @@ Using `uv run` ensures that Python is executed using the environment managed by 
 
 ## About Jupyter Notebooks
 
-This pro*ect primarily provides interactive*learning materials in Jupyter Note*ook (`.ipynb`) format.
+This project primarily provides interactive learning materials in Jupyter Notebook (`.ipynb`) format.
 
 A Notebook allows you to learn through the following cycle:
 
@@ -723,6 +734,7 @@ A civil engineering student learning Python, data analysis, AI, and related tech
 The **Python for Civil Engineering** series is also published on Qiita.
 
 - [Qiita](https://qiita.com/skyblueao77)
+- [Series Overview (Qiita)](https://qiita.com/skyblueao77/items/ea31e9890f6368b25e19)
 - [GitHub](https://github.com/skyblueao77/civil-engineering-python)
 
 ---
@@ -732,22 +744,24 @@ The **Python for Civil Engineering** series is also published on Qiita.
 ### Project
 
 - [Qiita - skyblueao77](https://qiita.com/skyblueao77)
+- [Series Overview (Qiita)](https://qiita.com/skyblueao77/items/ea31e9890f6368b25e19)
 - [GitHub - civil-engineering-python](https://github.com/skyblueao77/civil-engineering-python)
 
 ### Python Environment and Development
 
 - [Python](https://www.python.org/)
-- https://docs.astral.sh/uv/
-- https://www.jetbrains.com/pycharm/
+- [uv](https://docs.astral.sh/uv/)
+- [PyCharm](https://www.jetbrains.com/pycharm/)
 - [Jupyter](https://jupyter.org/)
 - [Google Colab](https://colab.research.google.com/)
 
 ### Main Python Libraries
 
 - [NumPy](https://numpy.org/)
-- https://pandas.pydata.org/
+- [pandas](https://pandas.pydata.org/)
 - [Matplotlib](https://matplotlib.org/)
 - [SciPy](https://scipy.org/)
+- [GeoPandas](https://geopandas.org/)
 
 ---
 
@@ -759,12 +773,10 @@ Future materials may cover topics such as:
 - Analysis using real-world datasets
 - Publicly available civil engineering and infrastructure data
 - Data provided by organizations such as Japan's Ministry of Land, Infrastructure, Transport and Tourism (MLIT)
-- GIS and spatial data
-- GeoPandas
+- Applied GIS and spatial data analysis
 - Statistical analysis
-- Numerical methods for engineering problems
-- Applications of Python in civil engineering
-- Python development with generative AI
+- Numerical methods for structural and hydraulic engineering problems
+- Machine learning and AI applications in civil engineering
 - Methods for verifying AI-generated code
 - Advanced numerical analysis
 

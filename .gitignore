@@ -23,3 +23,16 @@ uv.lock.bak
 
 # IDE / Editor
 .vscode/
+
+# Secrets / Environment variables
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+secrets.*
+
+# OS metadata
+.DS_Store
+Thumbs.db

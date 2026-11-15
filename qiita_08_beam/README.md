@@ -27,3 +27,4 @@ Qiita記事:
 
 ```bash
 uv sync
+```

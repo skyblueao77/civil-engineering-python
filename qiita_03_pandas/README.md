@@ -1,7 +1,7 @@
 # 土木のためのPython入門 Vol.3
 
 Qiita記事:
-[土木のためのPython入門③ pandas入門編](https://qiita.com/skyblueao77)
+[土木のためのPython入門③ pandas入門編](https://qiita.com/skyblueao77/items/c8c4902706f97415d1ec)
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/skyblueao77/civil-engineering-python/blob/main/qiita_03_pandas/qiita_doboku_3.ipynb)
 

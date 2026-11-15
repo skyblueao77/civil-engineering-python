@@ -1,7 +1,7 @@
 # 土木のためのPython入門 Vol.5
 
 Qiita記事:
-[土木のためのPython入門⑤ NumPy入門編](https://qiita.com/skyblueao77)
+[土木のためのPython入門⑤ NumPy入門｜配列・行列・数値計算を基礎から解説](https://qiita.com/skyblueao77/items/dfc9a12c147230814424)
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/skyblueao77/civil-engineering-python/blob/main/qiita_05_numpy/qiita_doboku_5.ipynb)
 

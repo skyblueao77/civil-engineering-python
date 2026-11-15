@@ -1,7 +1,7 @@
 # 土木のためのPython入門 Vol.6
 
 Qiita記事:
-[土木のためのPython入門⑥ SciPy入門編](https://qiita.com/skyblueao77)
+[土木のためのPython入門⑥ SciPyで科学技術計算｜補間・数値積分・数値微分・最適化](https://qiita.com/skyblueao77/items/a1306b9cd6c06671191b)
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/skyblueao77/civil-engineering-python/blob/main/qiita_06_scipy/qiita_doboku_6.ipynb)
 

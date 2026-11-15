@@ -1,7 +1,7 @@
 # 土木のためのPython入門 Vol.7
 
 Qiita記事:
-[土木のためのPython入門⑦ GeoPandas・GISデータ入門編]([https://qiita.com/skyblueao77](https://qiita.com/skyblueao77/items/3b64dff2020415332445))
+[土木のためのPython入門⑦ GeoPandas入門編](https://qiita.com/skyblueao77/items/3b64dff2020415332445)
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/skyblueao77/civil-engineering-python/blob/main/qiita_07_geopandas/qiita_doboku_7.ipynb)
 
@@ -27,3 +27,4 @@ Qiita記事:
 
 ```bash
 uv sync
+```

@@ -1,0 +1,67 @@
+name: CI & Security Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    # 毎週月曜 09:00 JST (00:00 UTC) に依存関係の脆弱性監査を実行
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Lockfile, Security Lint & Notebook Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up uv and Python
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          enable-cache: true
+          python-version: "3.13"
+
+      - name: Verify uv.lock consistency
+        run: uv lock --check
+
+      - name: Install dependencies strictly from uv.lock
+        run: uv sync --locked --all-groups
+
+      - name: Run Ruff security rules (flake8-bandit)
+        run: uv run ruff check --select S .
+
+      - name: Run pytest and execute all notebooks
+        run: uv run pytest --nbmake
+
+  dependency-audit:
+    name: Dependency Vulnerability Audit (pip-audit)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up uv and Python
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          enable-cache: true
+          python-version: "3.13"
+
+      - name: Install dependencies strictly from uv.lock
+        run: uv sync --locked --all-groups
+
+      - name: Audit installed packages for known vulnerabilities
+        run: uv run pip-audit --strict

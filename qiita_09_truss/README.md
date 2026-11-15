@@ -2,6 +2,8 @@
 
 ## 2次元三角形トラスをPythonで解析してみよう
 
+Qiita記事: 準備中（第9回記事は未作成） / [【連載一覧】土木のためのPython入門](https://qiita.com/skyblueao77/items/ea31e9890f6368b25e19)
+
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/skyblueao77/civil-engineering-python/blob/main/qiita_09_truss/qiita_doboku_9.ipynb)
 
 ## 内容

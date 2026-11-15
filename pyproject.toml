@@ -22,9 +22,10 @@ dependencies = [
 [dependency-groups]
 dev = [
     "nbmake>=1.5.5",
+    "pip-audit>=2.10.1",
     "pre-commit>=4.6.2",
     "pytest>=9.1.1",
-    "ruff==0.17.4",
+    "ruff==0.17.5",
 ]
 
 [tool.ruff]
@@ -32,4 +33,7 @@ line-length = 88
 target-version = "py313"
 
 [tool.ruff.lint]
-select = ["E", "F", "I"] # E: Error, F: Pyflakes (未定義変数など), I: isort (インポート順序)
+select = ["E", "F", "I", "S"] # E: Error, F: Pyflakes, I: isort, S: flake8-bandit (セキュリティ)
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S101"] # pytest では assert を使用するため除外

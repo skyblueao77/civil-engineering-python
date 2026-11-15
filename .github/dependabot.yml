@@ -6,3 +6,10 @@ updates:
     schedule:
       interval: "weekly" # 実行頻度（daily, weekly, monthly から選択）
     open-pull-requests-limit: 10
+
+  # GitHub Actions の自動更新設定
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5

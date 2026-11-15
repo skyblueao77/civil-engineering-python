@@ -15,31 +15,29 @@
 
 ## 目次
 
-* [対象読者](https://www.google.com/search?q=%23%E5%AF%BE%E8%B1%A1%E8%AA%AD%E8%80%85)
-* [学べること](https://www.google.com/search?q=%23%E5%AD%A6%E3%81%B9%E3%82%8B%E3%81%93%E3%81%A8)
-* [記事と学習教材](https://www.google.com/search?q=%23%E8%A8%98%E4%BA%8B%E3%81%A8%E5%AD%A6%E7%BF%92%E6%95%99%E6%9D%90)
-* [リポジトリ構成](https://www.google.com/search?q=%23%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E6%A7%8B%E6%88%90)
-* [環境構築](https://www.google.com/search?q=%23%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89)
-* [方法1: Google Colabを使う](https://www.google.com/search?q=%23%E6%96%B9%E6%B3%951-google-colab%E3%82%92%E4%BD%BF%E3%81%86)
-* [方法2: uv + PyCharmを使う](https://www.google.com/search?q=%23%E6%96%B9%E6%B3%952-uv--pycharm%E3%82%92%E4%BD%BF%E3%81%86)
-
-
-* [依存パッケージ](https://www.google.com/search?q=%23%E4%BE%9D%E5%AD%98%E3%83%91%E3%83%83%E3%82%B1%E3%83%BC%E3%82%B8)
-* [再現性と依存関係の管理](https://www.google.com/search?q=%23%E5%86%8D%E7%8F%BE%E6%80%A7%E3%81%A8%E4%BE%9D%E5%AD%98%E9%96%A2%E4%BF%82%E3%81%AE%E7%AE%A1%E7%90%86)
-* [セキュリティとコード品質](https://www.google.com/search?q=%23%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%AA%E3%83%86%E3%82%A3%E3%81%A8%E3%82%B3%E3%83%BC%E3%83%89%E5%93%81%E8%B3%AA)
-* [Pythonの実行方法](https://www.google.com/search?q=%23python%E3%81%AE%E5%AE%9F%E8%A1%8C%E6%96%B9%E6%B3%95)
-* [Jupyter Notebookについて](https://www.google.com/search?q=%23jupyter-notebook%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)
-* [土木工学におけるPython](https://www.google.com/search?q=%23%E5%9C%9F%E6%9C%A8%E5%B7%A5%E5%AD%A6%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8Bpython)
-* [AI時代のPython学習](https://www.google.com/search?q=%23ai%E6%99%82%E4%BB%A3%E3%81%AEpython%E5%AD%A6%E7%BF%92)
-* [推奨する学習ロードマップ](https://www.google.com/search?q=%23%E6%8E%A8%E5%A5%A8%E3%81%99%E3%82%8B%E5%AD%A6%E7%BF%92%E3%83%AD%E3%83%BC%E3%83%89%E3%83%9E%E3%83%83%E3%83%97)
-* [推奨環境](https://www.google.com/search?q=%23%E6%8E%A8%E5%A5%A8%E7%92%B0%E5%A2%83)
-* [トラブルシューティング](https://www.google.com/search?q=%23%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0)
-* [開発者の方へ](https://www.google.com/search?q=%23%E9%96%8B%E7%99%BA%E8%80%85%E3%81%AE%E6%96%B9%E3%81%B8)
-* [免責事項](https://www.google.com/search?q=%23%E5%85%8D%E8%B2%AC%E4%BA%8B%E9%A0%85)
-* [ライセンス](https://www.google.com/search?q=%23%E3%83%A9%E3%82%A4%E3%82%BB%E3%83%B3%E3%82%B9)
-* [著者](https://www.google.com/search?q=%23%E8%91%97%E8%80%85)
-* [関連リンク](https://www.google.com/search?q=%23%E9%96%A2%E9%80%A3%E3%83%AA%E3%83%B3%E3%82%AF)
-* [今後の予定](https://www.google.com/search?q=%23%E4%BB%8A%E5%BE%8C%E3%81%AE%E4%BA%88%E5%AE%9A)
+* [対象読者](#対象読者)
+* [学べること](#学べること)
+* [記事と学習教材](#記事と学習教材)
+* [リポジトリ構成](#リポジトリ構成)
+* [環境構築](#環境構築)
+  * [方法1: Google Colabを使う](#方法1-google-colabを使う)
+  * [方法2: uv + PyCharmを使う](#方法2-uv--pycharmを使う)
+* [依存パッケージ](#依存パッケージ)
+* [再現性と依存関係の管理](#再現性と依存関係の管理)
+* [セキュリティとコード品質](#セキュリティとコード品質)
+* [Pythonの実行方法](#pythonの実行方法)
+* [Jupyter Notebookについて](#jupyter-notebookについて)
+* [土木工学におけるPython](#土木工学におけるpython)
+* [AI時代のPython学習](#ai時代のpython学習)
+* [推奨する学習ロードマップ](#推奨する学習ロードマップ)
+* [推奨環境](#推奨環境)
+* [トラブルシューティング](#トラブルシューティング)
+* [開発者の方へ](#開発者の方へ)
+* [免責事項](#免責事項)
+* [ライセンス](#ライセンス)
+* [著者](#著者)
+* [関連リンク](#関連リンク)
+* [今後の予定](#今後の予定)
 
 ---
 
@@ -73,28 +71,33 @@
 * Matplotlibによるデータの可視化
 * NumPyによる数値計算
 * SciPyによる科学技術計算
+* GeoPandasによるGIS・地理空間データの扱い
+* 構造力学・土木工学の課題に対するPythonの応用（単純梁の解析など）
 * Jupyter Notebookの使い方
 * uvを用いたPython環境および依存関係の管理
-* 土木工学の課題に対するPythonの応用
 * AIが生成したPythonコードの理解と検証
 
-今後の教材では、土木データの分析、GIS・空間データ、実際の公共データセットの活用、より高度な数値計算などにも展開していく予定です。
+今後の教材では、実際の公共データセットを用いた土木データ分析、より高度な構造解析や数値計算などにも展開していく予定です。
 
 ---
 
 ## 記事と学習教材
 
+連載全体の案内ページはこちら: [【連載一覧】土木のためのPython入門](https://qiita.com/skyblueao77/items/ea31e9890f6368b25e19)
+
 現在利用可能な教材は以下の通りです。
 
-| 巻 | テーマ         | GitHub教材 | Qiita記事 |
-| --- |----------------| --- | --- |
-| Vol.1 | 環境構築       | リポジトリルート | [https://qiita.com/skyblueao77/items/c4a0e7ddc9913c55994f](https://qiita.com/skyblueao77/items/c4a0e7ddc9913c55994f) |
-| Vol.2 | Pythonの基礎   | `./qiita_02_basic/` | [https://qiita.com/skyblueao77/items/65abd5ad5befa474ee5f](https://qiita.com/skyblueao77/items/65abd5ad5befa474ee5f) |
-| Vol.3 | pandas入門     | `./qiita_03_pandas/` | [https://qiita.com/skyblueao77/items/c8c4902706f97415d1ec](https://qiita.com/skyblueao77/items/c8c4902706f97415d1ec) |
-| Vol.4 | Matplotlib入門 | `./qiita_04_matplotlib/` | [https://qiita.com/skyblueao77/items/45da8225a78e99d28cc5](https://qiita.com/skyblueao77/items/45da8225a78e99d28cc5) |
-| Vol.5 | NumPy入門      | `./qiita_05_numpy/` | [https://qiita.com/skyblueao77/items/dfc9a12c147230814424](https://qiita.com/skyblueao77/items/dfc9a12c147230814424) |
-| Vol.6 | SciPy入門      | `./qiita_06_scipy/` | [https://qiita.com/skyblueao77/items/a1306b9cd6c06671191b](https://qiita.com/skyblueao77/items/a1306b9cd6c06671191b) |
-| Vol.7  | GeoPandas入門  | ./qiita_07_geopandas/  | https://qiita.com/skyblueao77/items/3b64dff2020415332445 |
+| 巻 | テーマ | GitHub教材 | Qiita記事 |
+| --- | --- | --- | --- |
+| Vol.1 | 環境構築編（Google Colab・uv） | リポジトリルート | [土木のためのPython入門① 環境構築編（Google Colab・uv）](https://qiita.com/skyblueao77/items/c4a0e7ddc9913c55994f) |
+| Vol.2 | 基本文法編 | `./qiita_02_basic/` | [土木のためのPython入門② 基本文法編](https://qiita.com/skyblueao77/items/65abd5ad5befa474ee5f) |
+| Vol.3 | pandas入門編 | `./qiita_03_pandas/` | [土木のためのPython入門③ pandas入門編](https://qiita.com/skyblueao77/items/c8c4902706f97415d1ec) |
+| Vol.4 | Matplotlib入門編 | `./qiita_04_matplotlib/` | [土木のためのPython入門④ matplotlib入門編](https://qiita.com/skyblueao77/items/45da8225a78e99d28cc5) |
+| Vol.5 | NumPy入門 | `./qiita_05_numpy/` | [土木のためのPython入門⑤ NumPy入門｜配列・行列・数値計算を基礎から解説](https://qiita.com/skyblueao77/items/dfc9a12c147230814424) |
+| Vol.6 | SciPyで科学技術計算 | `./qiita_06_scipy/` | [土木のためのPython入門⑥ SciPyで科学技術計算｜補間・数値積分・数値微分・最適化](https://qiita.com/skyblueao77/items/a1306b9cd6c06671191b) |
+| Vol.7 | GeoPandas入門編 | `./qiita_07_geopandas/` | [土木のためのPython入門⑦ GeoPandas入門編](https://qiita.com/skyblueao77/items/3b64dff2020415332445) |
+| Vol.8 | 構造解析編（単純梁） | `./qiita_08_beam/` | [土木のためのPython入門⑧ 単純梁をPythonで解析してみよう](https://qiita.com/skyblueao77/items/cd31c475fdbf9d5a80f6) |
+| Vol.9 | 構造解析編（2次元トラス） | `./qiita_09_truss/` | 準備中（第9回記事は未作成） |
 
 各巻には基本的に以下が含まれます。
 
@@ -166,6 +169,7 @@ uv.lock
 * pandas
 * Matplotlib
 * SciPy
+* GeoPandas
 
 学習教材の利用方法は、大きく分けて2通りあります。
 
@@ -302,6 +306,7 @@ READMEを読みながら、Notebookを実行したりサンプルコードを書
 | pandas | 表形式データの処理 |
 | Matplotlib | データの可視化（グラフ描画） |
 | SciPy | 科学技術計算 |
+| GeoPandas | GIS・地理空間データの処理 |
 | Jupyter | ノートブック環境 |
 | ipykernel | Pythonカーネル |
 
@@ -338,30 +343,34 @@ uv sync
 
 ## セキュリティとコード品質
 
-セキュリティ管理、依存関係の更新、環境の再現性、そしてコードの品質維持は、本リポジトリの開発プロセスの一環として扱われています。
+本リポジトリでは、学習者や利用者が安心してコードを実行できるよう、セキュリティ管理・依存関係の脆弱性監視・環境の再現性・コード品質の自動検証を継続的に実施しています。
 
-### GitHubセキュリティ機能
+### 安心してご利用いただくための取り組み
 
-本リポジトリでは、安全な開発環境を維持するためにGitHubのセキュリティ機能を活用しています。
-
-* **Security Policy**: 脆弱性を発見した際のアドバイザリ・報告手順
-* **Security Advisories**: リポジトリの脆弱性情報を管理するGitHub標準機構
-* **Private Vulnerability Reporting**: 非公開での脆弱性報告窓口
-* **Dependabot Alerts**: 依存パッケージの既知の脆弱性を自動監視
-* **Secret Scanning**: 誤ってコミットされた機密情報（APIキー等）の検知
+* **不要な外部通信や機密情報の非扱い**: 教材スクリプト・Notebook はローカル環境（または Google Colab）での数値計算・データ可視化を中心としており、認証情報の取得や外部へのデータ送信は行いません。
+* **ロックファイルによる再現性と整合性検証**: `uv.lock` にパッケージバージョンとハッシュを記録しています。より厳密に環境を構築・検証したい場合は `uv sync --locked` を使用できます。
+* **GitHub セキュリティ機能**:
+  * **Security Policy / Private Vulnerability Reporting**: 脆弱性発見時の非公開報告窓口
+  * **Dependabot Alerts & Updates**: `uv` および GitHub Actions の依存関係を週次で自動監視・更新
+  * **Secret Scanning & Push Protection**: APIキー・秘密鍵・`.env` 等の機密情報の誤コミットを検知・ブロック（`.gitignore` でも除外設定済み）
+  * **CodeQL**: 静的解析によるコードスキャンを運用
+* **CI による自動検証（GitHub Actions）**:
+  * ワークフロー（[`.github/workflows/ci.yml`](.github/workflows/ci.yml)）は最小権限（`contents: read`）かつ Action のコミット SHA 固定で運用しています。
+  * すべての push / Pull Request で `uv lock --check`、Ruff のセキュリティルール（`S`: flake8-bandit）、および `pytest --nbmake` による全 Notebook の実行テストを実施しています。
+  * 定期実行（毎週）および変更時に **`pip-audit --strict`** を実行し、依存パッケージに既知の脆弱性（CVE）がないか検査しています。
 
 関連リンク:
 
-* [https://github.com/skyblueao77/civil-engineering-python/security/policy](https://github.com/skyblueao77/civil-engineering-python/security/policy)
-* [https://github.com/skyblueao77/civil-engineering-python/security/advisories](https://github.com/skyblueao77/civil-engineering-python/security/advisories)
-* [https://github.com/skyblueao77/civil-engineering-python/security/dependabot](https://github.com/skyblueao77/civil-engineering-python/security/dependabot)
-* [https://github.com/skyblueao77/civil-engineering-python/security/secret-scanning](https://github.com/skyblueao77/civil-engineering-python/security/secret-scanning)
+* [Security Policy](https://github.com/skyblueao77/civil-engineering-python/security/policy)
+* [Security Advisories](https://github.com/skyblueao77/civil-engineering-python/security/advisories)
+* [Dependabot Alerts](https://github.com/skyblueao77/civil-engineering-python/security/dependabot)
+* [Secret Scanning](https://github.com/skyblueao77/civil-engineering-python/security/secret-scanning)
 
-### コードスキャン
+### 利用者向けの安全な使い方のポイント
 
-CodeQLなどの静的解析ワークフローを使用した自動コードスキャンを設定・運用しています。
-
-設定されている場合、依存関係の監視や通常の開発チェックを補完する役割を果たします。
+1. **公式リポジトリから取得する**: `https://github.com/skyblueao77/civil-engineering-python` からクローンするか、各巻 README の公式 **Open in Colab** リンクをご利用ください。
+2. **`uv sync --locked` を活用する**: ローカル環境で依存関係を構築する際、`uv sync --locked` を使うと `uv.lock` と一致しない改変や意図しないバージョン変更を防げます。
+3. **独自データの扱いに注意する**: ご自身の業務データや位置情報、APIキーなどを扱う場合は、リポジトリへコミットしないようご注意ください（`.env` 等は `.gitignore` で除外しています）。
 
 ### Pre-commit チェック
 
@@ -371,23 +380,22 @@ CodeQLなどの静的解析ワークフローを使用した自動コードス�
 
 ```text
 .pre-commit-config.yaml
-
 ```
 
 開発ワークフローには以下のツールが含まれています。
 
-* **Ruff**: 静的解析およびコード品質チェック
-* **Pytest**: 自動テスト
-* **nbmake**: Jupyter Notebookの実行テスト
+* **Ruff**: 静的解析、コード品質チェック、および Bandit セキュリティルール（`S`）検査
+* **uv lock --check**: `pyproject.toml` と `uv.lock` の整合性確認
+* **Pytest / nbmake**: 自動テストおよび全 Jupyter Notebook の実行テスト
+* **pip-audit**: 依存パッケージの既知脆弱性チェック（`uv run pip-audit --strict`）
 
 手動で事前にチェックを実行したい場合は、以下を実行します。
 
 ```bash
 uv run pre-commit run --all-files
-
 ```
 
-これらのチェックにより、フォーマット崩れ、文法エラー、未使用コード、スクリプトやNotebookの実行エラーなどを事前に検知できます。
+これらのチェックにより、フォーマット崩れ、文法エラー、セキュリティ上の懸念、ロックファイルの不整合、スクリプトや Notebook の実行エラーなどを事前に検知できます。
 
 ### セキュリティの範囲について
 
@@ -395,7 +403,7 @@ uv run pre-commit run --all-files
 
 記載されているセキュリティ機能や開発チェックは、リポジトリの衛生状態、依存関係の監視、再現性、およびコード品質を向上させるためのものです。
 
-これらは、本リポジトリや依存する全パッケージに完全に脆弱性がないことを保証するものではありません。
+これらは、本リポジトリや依存する全パッケージに完全に脆弱性がないことを永久に保証するものではありません。
 
 ---
 
@@ -719,7 +727,7 @@ uv run ruff check --fix .
 
 本リポジトリのコードや計算例を、十分な検証なしに実務上の重要な工学的判断に直接使用しないでください。
 
-特に、実際の業務、設計、施工、インフラ管理、防災・安全に関わる計算に利用する場合は、必ず有資格者・専門家に相談し、適用される法令、示成書、基準、公式文書、および各種ガイドラインに基づいて結果を検証してください。
+特に、実際の業務、設計、施工、インフラ管理、防災・安全に関わる計算に利用する場合は、必ず有資格者・専門家に相談し、適用される法令、示方書、基準、公式文書、および各種ガイドラインに基づいて結果を検証してください。
 
 ---
 
@@ -740,6 +748,7 @@ Python、データ分析、AIなどの技術を学んでいる土木工学専攻
 「土木のためのPython」シリーズはQiitaでも連載・公開しています。
 
 * [Qiita](https://qiita.com/skyblueao77)
+* [【連載一覧】土木のためのPython入門](https://qiita.com/skyblueao77/items/ea31e9890f6368b25e19)
 * [GitHub](https://github.com/skyblueao77/civil-engineering-python)
 
 ---
@@ -749,6 +758,7 @@ Python、データ分析、AIなどの技術を学んでいる土木工学専攻
 ### プロジェクト関連
 
 * [Qiita - skyblueao77](https://qiita.com/skyblueao77)
+* [【連載一覧】土木のためのPython入門](https://qiita.com/skyblueao77/items/ea31e9890f6368b25e19)
 * [GitHub - civil-engineering-python](https://github.com/skyblueao77/civil-engineering-python)
 
 ### Python環境・開発ツール
@@ -765,6 +775,7 @@ Python、データ分析、AIなどの技術を学んでいる土木工学専攻
 * [pandas](https://pandas.pydata.org/)
 * [Matplotlib](https://matplotlib.org/)
 * [SciPy](https://scipy.org/)
+* [GeoPandas](https://geopandas.org/)
 
 ---
 
@@ -775,10 +786,10 @@ Python、データ分析、AIなどの技術を学んでいる土木工学専攻
 * 土木実務に役立つデータ分析手法
 * 実際のデータセットを用いた実践的解析
 * 公共データ（国土交通省などのオープンデータ）の活用
-* GIS・地理空間データ処理（GeoPandasなど）
+* 応用的なGIS・地理空間データ処理
 * 統計解析の基礎と応用
-* 工学課題に対する数値計算手法
-* 生成AIを活用した効率的なPython開発手法
+* 構造・水理などの工学課題に対する数値計算手法
+* 機械学習・AIの土木工学への応用
 * AI生成コードのデバッグ・検証テクニック
 * より高度な数値解析プログラミング
 
@@ -794,6 +805,6 @@ Python、データ分析、AIなどの技術を学んでいる土木工学専攻
 
 ---
 
-**Python for Civil Engineering（土木のためのPython 入眠）**
+**Python for Civil Engineering（土木のためのPython 入門）**
 
 Pythonの基礎から、実際の土木データの理解・分析まで。

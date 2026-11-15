@@ -7,6 +7,20 @@ repos:
         language: system
         types: [python]
 
+      - id: ruff-security
+        name: Run Ruff Security Check
+        entry: uv run ruff check --select S
+        language: system
+        pass_filenames: false
+        always_run: true
+
+      - id: uv-lock-check
+        name: Check uv.lock Consistency
+        entry: uv lock --check
+        language: system
+        pass_filenames: false
+        always_run: true
+
       - id: run-pytest
         name: Run Pytest
         entry: uv run pytest --nbmake
