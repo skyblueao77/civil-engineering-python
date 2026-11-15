@@ -1,0 +1,27 @@
+changelog:
+  exclude:
+    labels:
+      - ignore-for-release
+    authors:
+      - github-actions
+  categories:
+    - title: 📚 新機能・教材追加 (Features & Content)
+      labels:
+        - enhancement
+        - feature
+        - content
+    - title: 🔒 セキュリティ・CI (Security & CI)
+      labels:
+        - security
+        - ci
+    - title: 🐛 バグ修正・ドキュメント改善 (Fixes & Docs)
+      labels:
+        - bug
+        - documentation
+        - docs
+    - title: 📦 依存関係更新 (Dependencies)
+      labels:
+        - dependencies
+    - title: 🔧 その他の変更 (Other Changes)
+      labels:
+        - "*"

@@ -705,6 +705,20 @@ Contributors should also read:
 
 ---
 
+### 3. Release Automation
+
+Pushing a semantic version tag (for example, `v1.4.0`) triggers [`.github/workflows/release.yml`](.github/workflows/release.yml) to automatically verify the codebase and publish a GitHub Release:
+
+1. Runs `uv lock --check`, Ruff security rules (`--select S`), `pip-audit --strict`, and `pytest --nbmake` across all notebooks.
+2. Once all checks pass, generates categorized release notes using [`.github/release.yml`](.github/release.yml), attaches `SHA256SUMS.txt`, and publishes the GitHub Release.
+
+```bash
+git tag -a v1.4.0 -m "v1.4.0 - Release summary"
+git push origin v1.4.0
+```
+
+---
+
 ## Disclaimer
 
 This repository is an educational resource for learning Python and its applications in civil engineering.

@@ -719,6 +719,20 @@ uv run ruff check --fix .
 
 ---
 
+### 3. リリース自動化
+
+本リポジトリでは、セマンティックバージョニング形式のタグ（例: `v1.4.0`）をプッシュすると、[`.github/workflows/release.yml`](.github/workflows/release.yml) により自動検証と GitHub Release の作成が行われます。
+
+1. `uv lock --check`、Ruff セキュリティチェック（`--select S`）、`pip-audit --strict`、`pytest --nbmake` を自動実行します。
+2. 全チェック通過後、[`.github/release.yml`](.github/release.yml) のカテゴリ定義に沿ってリリースノートを自動生成し、`SHA256SUMS.txt` を添付して GitHub Release を公開します。
+
+```bash
+git tag -a v1.4.0 -m "v1.4.0 - リリース概要"
+git push origin v1.4.0
+```
+
+---
+
 ## 免責事項
 
 本リポジトリは、Pythonおよびその土木工学への応用を学ぶための**教育用リソース**です。

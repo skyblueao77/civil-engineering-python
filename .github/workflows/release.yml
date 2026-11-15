@@ -1,0 +1,170 @@
+name: Release Automation
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag name (e.g., v1.4.0)"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    name: Verify Release Candidate
+    runs-on: ubuntu-latest
+    env:
+      EVENT_NAME: ${{ github.event_name }}
+      INPUT_TAG: ${{ inputs.tag }}
+      REF_NAME: ${{ github.ref_name }}
+    steps:
+      - name: Determine and validate release tag
+        run: |
+          if [ "${EVENT_NAME}" = "workflow_dispatch" ]; then
+            TAG="${INPUT_TAG}"
+          else
+            TAG="${REF_NAME}"
+          fi
+          if ! [[ "${TAG}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+            echo "Invalid release tag format: ${TAG}" >&2
+            exit 1
+          fi
+          echo "RELEASE_TAG=${TAG}" >> "${GITHUB_ENV}"
+
+      - name: Checkout tagged commit (no third-party actions)
+        run: |
+          git init .
+          git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          if [ "${EVENT_NAME}" = "workflow_dispatch" ]; then
+            git fetch --depth 1 origin "refs/tags/${RELEASE_TAG}:refs/tags/${RELEASE_TAG}"
+            git checkout --detach "refs/tags/${RELEASE_TAG}"
+          else
+            git fetch --depth 1 origin "${GITHUB_SHA}"
+            git checkout --detach FETCH_HEAD
+          fi
+
+      - name: Install uv
+        run: |
+          curl --proto '=https' --tlsv1.2 -LsSf https://astral.sh/uv/install.sh | sh
+          echo "${HOME}/.local/bin" >> "${GITHUB_PATH}"
+
+      - name: Verify uv.lock consistency
+        run: uv lock --check
+
+      - name: Install dependencies strictly from uv.lock
+        run: uv sync --locked --all-groups
+
+      - name: Run Ruff security rules (flake8-bandit)
+        run: uv run ruff check --select S .
+
+      - name: Audit dependencies for known vulnerabilities
+        run: uv run pip-audit --strict
+
+      - name: Run pytest and execute all notebooks
+        run: uv run pytest --nbmake
+
+  release:
+    name: Publish GitHub Release
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      EVENT_NAME: ${{ github.event_name }}
+      INPUT_TAG: ${{ inputs.tag }}
+      REF_NAME: ${{ github.ref_name }}
+    steps:
+      - name: Determine and validate release tag
+        run: |
+          if [ "${EVENT_NAME}" = "workflow_dispatch" ]; then
+            TAG="${INPUT_TAG}"
+          else
+            TAG="${REF_NAME}"
+          fi
+          if ! [[ "${TAG}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+            echo "Invalid release tag format: ${TAG}" >&2
+            exit 1
+          fi
+          echo "RELEASE_TAG=${TAG}" >> "${GITHUB_ENV}"
+
+      - name: Checkout tag and fetch history (no third-party actions)
+        run: |
+          git init .
+          git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          git fetch --tags --depth 1 origin "refs/tags/${RELEASE_TAG}:refs/tags/${RELEASE_TAG}"
+          git checkout --detach "refs/tags/${RELEASE_TAG}"
+
+      - name: Generate SHA256 checksums for dependency manifests
+        run: |
+          sha256sum pyproject.toml uv.lock .python-version > SHA256SUMS.txt
+          cat SHA256SUMS.txt
+
+      - name: Build release notes and publish GitHub Release
+        run: |
+          TAG_TYPE=$(git cat-file -t "refs/tags/${RELEASE_TAG}")
+          if [ "${TAG_TYPE}" = "tag" ]; then
+            RELEASE_TITLE=$(git for-each-ref --format='%(contents:subject)' "refs/tags/${RELEASE_TAG}")
+            TAG_BODY=$(git for-each-ref --format='%(contents:body)' "refs/tags/${RELEASE_TAG}")
+          else
+            RELEASE_TITLE="${RELEASE_TAG}"
+            TAG_BODY=""
+          fi
+          RELEASE_TITLE="${RELEASE_TITLE:-$RELEASE_TAG}"
+
+          GENERATED_NOTES=$(gh api "repos/${GITHUB_REPOSITORY}/releases/generate-notes" \
+            -f tag_name="${RELEASE_TAG}" \
+            --jq '.body' || true)
+
+          {
+            if [ -n "${TAG_BODY}" ]; then
+              printf '%s\n\n' "${TAG_BODY}"
+            fi
+            sed 's/^          //' <<'EOF'
+          ### ✅ 自動検証・セキュリティチェック結果
+          - `uv lock --check` / `uv sync --locked --all-groups`: 通過
+          - Ruff セキュリティ静的解析 (`--select S`): 通過
+          - `pip-audit --strict` 脆弱性監査: 既知の脆弱性なし
+          - `pytest --nbmake` 全 Notebook 実行テスト: 通過
+
+          ### 🚀 環境セットアップ
+          ```bash
+          git clone https://github.com/skyblueao77/civil-engineering-python.git
+          cd civil-engineering-python
+          git checkout __RELEASE_TAG__
+          uv sync --locked
+          ```
+          EOF
+            if [ -n "${GENERATED_NOTES}" ]; then
+              printf '\n---\n\n%s\n' "${GENERATED_NOTES}"
+            fi
+          } | sed "s/__RELEASE_TAG__/${RELEASE_TAG}/g" > release_notes.md
+
+          PRERELEASE_FLAG=""
+          if [[ "${RELEASE_TAG}" == *-* ]]; then
+            PRERELEASE_FLAG="--prerelease"
+          fi
+
+          if gh release view "${RELEASE_TAG}" >/dev/null 2>&1; then
+            echo "Release ${RELEASE_TAG} already exists; updating notes and checksums."
+            gh release edit "${RELEASE_TAG}" \
+              --title "${RELEASE_TITLE}" \
+              --notes-file release_notes.md \
+              ${PRERELEASE_FLAG}
+            gh release upload "${RELEASE_TAG}" SHA256SUMS.txt --clobber
+          else
+            gh release create "${RELEASE_TAG}" SHA256SUMS.txt \
+              --verify-tag \
+              --title "${RELEASE_TITLE}" \
+              --notes-file release_notes.md \
+              ${PRERELEASE_FLAG}
+          fi
