@@ -351,11 +351,11 @@ uv sync
 * **ロックファイルによる再現性と整合性検証**: `uv.lock` にパッケージバージョンとハッシュを記録しています。より厳密に環境を構築・検証したい場合は `uv sync --locked` を使用できます。
 * **GitHub セキュリティ機能**:
   * **Security Policy / Private Vulnerability Reporting**: 脆弱性発見時の非公開報告窓口
-  * **Dependabot Alerts & Updates**: `uv` および GitHub Actions の依存関係を週次で自動監視・更新
+  * **Dependabot Alerts & Updates**: `uv` 依存関係を週次で自動監視・更新
   * **Secret Scanning & Push Protection**: APIキー・秘密鍵・`.env` 等の機密情報の誤コミットを検知・ブロック（`.gitignore` でも除外設定済み）
   * **CodeQL**: 静的解析によるコードスキャンを運用
 * **CI による自動検証（GitHub Actions）**:
-  * ワークフロー（[`.github/workflows/ci.yml`](.github/workflows/ci.yml)）は最小権限（`contents: read`）かつ Action のコミット SHA 固定で運用しています。
+  * ワークフロー（[`.github/workflows/ci.yml`](.github/workflows/ci.yml)）は最小権限（`contents: read`）かつ外部サードパーティ製 Action に依存しない構成で運用しています。
   * すべての push / Pull Request で `uv lock --check`、Ruff のセキュリティルール（`S`: flake8-bandit）、および `pytest --nbmake` による全 Notebook の実行テストを実施しています。
   * 定期実行（毎週）および変更時に **`pip-audit --strict`** を実行し、依存パッケージに既知の脆弱性（CVE）がないか検査しています。
 

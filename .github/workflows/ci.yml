@@ -22,16 +22,17 @@ jobs:
     name: Lockfile, Security Lint & Notebook Tests
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
+      - name: Checkout repository (no third-party actions)
+        run: |
+          git init .
+          git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          git fetch --depth 1 origin "${GITHUB_SHA}"
+          git checkout --detach FETCH_HEAD
 
-      - name: Set up uv and Python
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
-        with:
-          enable-cache: true
-          python-version: "3.13"
+      - name: Install uv
+        run: |
+          curl --proto '=https' --tlsv1.2 -LsSf https://astral.sh/uv/install.sh | sh
+          echo "${HOME}/.local/bin" >> "${GITHUB_PATH}"
 
       - name: Verify uv.lock consistency
         run: uv lock --check
@@ -49,16 +50,17 @@ jobs:
     name: Dependency Vulnerability Audit (pip-audit)
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
+      - name: Checkout repository (no third-party actions)
+        run: |
+          git init .
+          git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          git fetch --depth 1 origin "${GITHUB_SHA}"
+          git checkout --detach FETCH_HEAD
 
-      - name: Set up uv and Python
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
-        with:
-          enable-cache: true
-          python-version: "3.13"
+      - name: Install uv
+        run: |
+          curl --proto '=https' --tlsv1.2 -LsSf https://astral.sh/uv/install.sh | sh
+          echo "${HOME}/.local/bin" >> "${GITHUB_PATH}"
 
       - name: Install dependencies strictly from uv.lock
         run: uv sync --locked --all-groups

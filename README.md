@@ -348,11 +348,11 @@ This repository treats security, dependency auditing, reproducibility, and code 
 - **Lockfile Reproducibility & Integrity (`uv.lock`)**: Package versions and hashes are pinned in `uv.lock`. Users can enforce strict verification with `uv sync --locked`.
 - **GitHub Security Features**:
   - **Security Policy & Private Vulnerability Reporting**: Private channel for reporting potential vulnerabilities
-  - **Dependabot Alerts & Updates**: Weekly automated monitoring and updates for both `uv` dependencies and GitHub Actions
+  - **Dependabot Alerts & Updates**: Weekly automated monitoring and updates for `uv` dependencies
   - **Secret Scanning & Push Protection**: Detects and blocks accidental commits of API keys, private keys, or `.env` files (also excluded via `.gitignore`)
   - **CodeQL**: Automated static analysis code scanning
 - **Automated CI & Security Verification (GitHub Actions)**:
-  - Workflows ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) run with least-privilege permissions (`contents: read`) and commit-SHA-pinned actions.
+  - Workflows ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)) run with least-privilege permissions (`contents: read`) and without third-party GitHub Actions.
   - Every push and pull request runs `uv lock --check`, Ruff security rules (`S`: flake8-bandit), and `pytest --nbmake` across all Jupyter Notebooks.
   - **`pip-audit --strict`** runs on changes and weekly on schedule to detect known vulnerabilities (CVEs) in dependencies.
 
