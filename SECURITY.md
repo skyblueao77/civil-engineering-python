@@ -18,12 +18,12 @@ To help learners and users run this repository safely, the following security co
    Dependencies and hashes are locked in `uv.lock` (`uv sync --locked` enforces strict lockfile verification).
 2. **Automated Vulnerability Auditing (`Dependabot` + `pip-audit`)**: GitHub Dependabot による週次の `uv` 依存関係更新とセキュリティアラートに加え、CI で `pip-audit --strict` を定期実行して既知の脆弱性（CVE）を監視しています。
    Dependabot monitors `uv` dependencies weekly, and CI runs `pip-audit --strict` to check for known vulnerabilities.
-3. **Static Security Analysis (`CodeQL` + `Ruff S`)**: GitHub CodeQL および Ruff の Bandit セキュリティルール（`S`）により、安全でない関数呼び出しや問題のある実装パターンを自動検査しています。
-   GitHub CodeQL and Ruff Bandit security rules (`S`) scan scripts and notebooks for unsafe coding patterns.
+3. **Static Security Analysis (`CodeQL` + `Ruff`)**: GitHub CodeQL および Ruff（スタイル・構文・インポート順および Bandit セキュリティルール `S`）により、安全でない関数呼び出しや問題のある実装パターンを自動検査しています。
+   GitHub CodeQL and Ruff (including Bandit security rules `S`) scan scripts and notebooks for unsafe coding patterns.
 4. **Secret Scanning & Push Protection**: GitHub Secret Scanning / Push Protection および `.gitignore` により、APIキー・秘密鍵・`.env` 等の誤コミットを防止しています。
    GitHub Secret Scanning, Push Protection, and `.gitignore` rules help prevent accidental commits of credentials or `.env` files.
-5. **Least-Privilege CI & Notebook Execution Tests**: GitHub Actions ワークフロー（`.github/workflows/ci.yml`）は最小権限（`contents: read`）かつ外部サードパーティ製 Action を使用しない構成（`local_only` ポリシー準拠）で運用し、全 Jupyter Notebook を `pytest --nbmake` で自動検証しています。
-   GitHub Actions workflows run with read-only permissions (`contents: read`), no external third-party actions (`local_only` policy compliant), and automated `pytest --nbmake` execution tests across all notebooks.
+5. **Least-Privilege CI, Unit & Notebook Execution Tests**: GitHub Actions ワークフロー（`.github/workflows/ci.yml`）は最小権限（`contents: read`）かつ外部サードパーティ製 Action を使用しない構成（`local_only` ポリシー準拠）で運用し、構造計算のユニットテストおよび全 Jupyter Notebook を `pytest --nbmake` で自動検証しています。
+   GitHub Actions workflows run with read-only permissions (`contents: read`), no external third-party actions (`local_only` policy compliant), and automated `pytest --nbmake` execution tests across unit tests and all notebooks.
 6. **Minimal Surface Area**: 本リポジトリの教材コードはローカルの数値計算・データ可視化・構造解析を中心に設計されており、認証情報の取得や外部サーバーへの送信処理を含みません。
    Educational scripts and notebooks focus on local numerical computation and visualization without collecting credentials or transmitting user data.
 

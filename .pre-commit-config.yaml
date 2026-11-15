@@ -8,8 +8,8 @@ repos:
         types: [python]
 
       - id: ruff-security
-        name: Run Ruff Security Check
-        entry: uv run ruff check --select S
+        name: Run Ruff Full Check (E, F, I, S)
+        entry: uv run ruff check .
         language: system
         pass_filenames: false
         always_run: true

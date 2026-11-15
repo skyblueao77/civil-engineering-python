@@ -63,13 +63,13 @@ jobs:
       - name: Install dependencies strictly from uv.lock
         run: uv sync --locked --all-groups
 
-      - name: Run Ruff security rules (flake8-bandit)
-        run: uv run ruff check --select S .
+      - name: Run Ruff lint and security checks (E, F, I, S)
+        run: uv run ruff check .
 
       - name: Audit dependencies for known vulnerabilities
         run: uv run pip-audit --strict
 
-      - name: Run pytest and execute all notebooks
+      - name: Run pytest unit tests and execute all notebooks
         run: uv run pytest --nbmake
 
   release:
@@ -132,9 +132,9 @@ jobs:
             sed 's/^          //' <<'EOF'
           ### ✅ 自動検証・セキュリティチェック結果
           - `uv lock --check` / `uv sync --locked --all-groups`: 通過
-          - Ruff セキュリティ静的解析 (`--select S`): 通過
+          - Ruff 静的解析・セキュリティチェック (`E`, `F`, `I`, `S`): 通過
           - `pip-audit --strict` 脆弱性監査: 既知の脆弱性なし
-          - `pytest --nbmake` 全 Notebook 実行テスト: 通過
+          - `pytest --nbmake` ユニットテスト・全 Notebook 実行テスト: 通過
 
           ### 🚀 環境セットアップ
           ```bash
